@@ -2,7 +2,9 @@
 
 from __future__ import annotations
 import dataclasses
+from ...models.components import brain as components_brain
 from ...models.components import httpmetadata as components_httpmetadata
+from dataclasses_json import Undefined, dataclass_json
 from typing import Dict, List, Optional
 
 
@@ -13,18 +15,12 @@ class GetBrainBrainIDRequest:
 
 
 
-@dataclasses.dataclass
-class GetBrainBrainIDResponseBody:
-    r"""OK"""
-    
-
-
-
+@dataclass_json(undefined=Undefined.EXCLUDE)
 @dataclasses.dataclass
 class GetBrainBrainIDResponse:
-    http_meta: components_httpmetadata.HTTPMetadata = dataclasses.field()
+    http_meta: components_httpmetadata.HTTPMetadata = dataclasses.field(metadata={'dataclasses_json': { 'exclude': lambda f: True }})
     headers: Dict[str, List[str]] = dataclasses.field()
-    object: Optional[GetBrainBrainIDResponseBody] = dataclasses.field(default=None)
+    brain: Optional[components_brain.Brain] = dataclasses.field(default=None)
     r"""OK"""
     
 

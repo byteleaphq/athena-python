@@ -32,9 +32,10 @@ class PostDocumentBrainIDURLResponseBody:
 
 
 
+@dataclass_json(undefined=Undefined.EXCLUDE)
 @dataclasses.dataclass
 class PostDocumentBrainIDURLResponse:
-    http_meta: components_httpmetadata.HTTPMetadata = dataclasses.field()
+    http_meta: components_httpmetadata.HTTPMetadata = dataclasses.field(metadata={'dataclasses_json': { 'exclude': lambda f: True }})
     headers: Dict[str, List[str]] = dataclasses.field()
     object: Optional[PostDocumentBrainIDURLResponseBody] = dataclasses.field(default=None)
     r"""OK"""

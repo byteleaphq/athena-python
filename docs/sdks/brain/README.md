@@ -26,11 +26,12 @@ s = athenacopilotsdk.AthenaCopilotSDK(
     ),
 )
 
+
 res = s.brain.post_brain_(request=operations.PostBrainRequestBody(
     name='Test - brain',
 ))
 
-if res.object is not None:
+if res.brain is not None:
     # handle response
     pass
 
@@ -71,9 +72,10 @@ s = athenacopilotsdk.AthenaCopilotSDK(
     ),
 )
 
+
 res = s.brain.get_brain_()
 
-if res.object is not None:
+if res.brains is not None:
     # handle response
     pass
 
@@ -106,11 +108,12 @@ s = athenacopilotsdk.AthenaCopilotSDK(
     ),
 )
 
+
 res = s.brain.put_brain_brain_id_(brain_id='<value>', request_body=operations.PutBrainBrainIDRequestBody(
     name='Test Updated Brain',
 ))
 
-if res.object is not None:
+if res.brain is not None:
     # handle response
     pass
 
@@ -151,9 +154,10 @@ s = athenacopilotsdk.AthenaCopilotSDK(
     ),
 )
 
+
 res = s.brain.get_brain_brain_id_(brain_id='{{brain_id}}')
 
-if res.object is not None:
+if res.brain is not None:
     # handle response
     pass
 
@@ -192,6 +196,7 @@ s = athenacopilotsdk.AthenaCopilotSDK(
         password="<YOUR_PASSWORD_HERE>",
     ),
 )
+
 
 res = s.brain.delete_brain_brain_id_(brain_id='{{brain_id}}')
 

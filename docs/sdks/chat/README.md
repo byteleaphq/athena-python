@@ -28,6 +28,7 @@ s = athenacopilotsdk.AthenaCopilotSDK(
     ),
 )
 
+
 res = s.chat.post_chat_(request=operations.PostChatRequestBody(
     brain_id='{{brain_id}}',
     name='Test_chat2',
@@ -73,6 +74,7 @@ s = athenacopilotsdk.AthenaCopilotSDK(
     ),
 )
 
+
 res = s.chat.get_chat_()
 
 if res.object is not None:
@@ -107,6 +109,7 @@ s = athenacopilotsdk.AthenaCopilotSDK(
         password="<YOUR_PASSWORD_HERE>",
     ),
 )
+
 
 res = s.chat.get_chat_chat_id_(chat_id='{{chat_id}}')
 
@@ -148,6 +151,7 @@ s = athenacopilotsdk.AthenaCopilotSDK(
         password="<YOUR_PASSWORD_HERE>",
     ),
 )
+
 
 res = s.chat.put_chat_chat_id_(chat_id='{{chat_id}}', request_body=operations.PutChatChatIDRequestBody(
     temperature=None,
@@ -195,6 +199,7 @@ s = athenacopilotsdk.AthenaCopilotSDK(
     ),
 )
 
+
 res = s.chat.delete_chat_chat_id_(chat_id='8474f310-a2a9-4cf8-b16f-8d01a5a6b5fa')
 
 if res.object is not None:
@@ -235,6 +240,7 @@ s = athenacopilotsdk.AthenaCopilotSDK(
         password="<YOUR_PASSWORD_HERE>",
     ),
 )
+
 
 res = s.chat.post_chat_get_response(request=operations.PostChatGetResponseRequestBody(
     chat_thread_id='d504386d-6cba-4e38-96f0-aa16b83e1cd8',
@@ -279,6 +285,7 @@ s = athenacopilotsdk.AthenaCopilotSDK(
         password="<YOUR_PASSWORD_HERE>",
     ),
 )
+
 
 res = s.chat.post_chat_list_interactions(request=operations.PostChatListInteractionsRequestBody(
     chat_thread_id='d504386d-6cba-4e38-96f0-aa16b83e1cd8',

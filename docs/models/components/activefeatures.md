@@ -1,6 +1,6 @@
-# GetBrainResponseBody
+# ActiveFeatures
 
-OK
+Active features of the brain. Currently used internally
 
 
 ## Fields

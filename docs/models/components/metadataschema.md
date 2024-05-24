@@ -1,6 +1,6 @@
-# PutBrainBrainIDResponseBody
+# MetadataSchema
 
-OK
+Metadata schema for the brain
 
 
 ## Fields

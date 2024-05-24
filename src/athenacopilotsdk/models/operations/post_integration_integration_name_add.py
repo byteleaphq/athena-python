@@ -33,9 +33,10 @@ class PostIntegrationIntegrationNameAddResponseBody:
 
 
 
+@dataclass_json(undefined=Undefined.EXCLUDE)
 @dataclasses.dataclass
 class PostIntegrationIntegrationNameAddResponse:
-    http_meta: components_httpmetadata.HTTPMetadata = dataclasses.field()
+    http_meta: components_httpmetadata.HTTPMetadata = dataclasses.field(metadata={'dataclasses_json': { 'exclude': lambda f: True }})
     headers: Dict[str, List[str]] = dataclasses.field()
     object: Optional[PostIntegrationIntegrationNameAddResponseBody] = dataclasses.field(default=None)
     r"""OK"""

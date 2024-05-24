@@ -28,6 +28,7 @@ s = athenacopilotsdk.AthenaCopilotSDK(
     ),
 )
 
+
 res = s.document.post_document_brain_id_text(brain_id='{{brain_id}}', request_body=operations.PostDocumentBrainIDTextRequestBody(
     content='What is an operating system? An operating system (OS) is the program that, after being initially loaded into the computer by a boot program, manages all of the other application programs in a computer. The application programs make use of the operating system by making requests for services through a defined application program interface (API). In addition, users can interact directly with the operating system through a user interface, such as a command-line interface (CLI) or a graphical UI (GUI). Why use an operating system? An operating system brings powerful benefits to computer software and software development. Without an operating system, every application would need to include its own UI, as well as the comprehensive code needed to handle all low-level functionality of the underlying computer, such as disk storage, network interfaces and so on. Considering the vast array of underlying hardware available, this would vastly bloat the size of every application and make software development impractical. Instead, many common tasks, such as sending a network packet or displaying text on a standard output device, such as a display, can be offloaded to system software that serves as an intermediary between the applications and the hardware. The system software provides a consistent and repeatable way for applications to interact with the hardware without the applications needing to know any details about the hardware. As long as each application accesses the same resources and services in the same way, that system software -- the operating system -- can service almost any number of applications. This vastly reduces the amount of time and coding required to develop and debug an application, while ensuring that users can control, configure and manage the system hardware through a common and well-understood interface.',
 ))
@@ -71,6 +72,7 @@ s = athenacopilotsdk.AthenaCopilotSDK(
         password="<YOUR_PASSWORD_HERE>",
     ),
 )
+
 
 res = s.document.post_document_brain_id_url(brain_id='{{brain_id}}', request_body=operations.PostDocumentBrainIDURLRequestBody(
     url='https://en.wikipedia.org/wiki/Artificial_intelligence',
@@ -117,6 +119,7 @@ s = athenacopilotsdk.AthenaCopilotSDK(
     ),
 )
 
+
 res = s.document.get_document_brain_id_document_id_download(brain_id='{{brain_id}}', document_id='a00f07cb-c04c-4824-9b26-5b7eb5c274ae')
 
 if res.object is not None:
@@ -159,6 +162,7 @@ s = athenacopilotsdk.AthenaCopilotSDK(
     ),
 )
 
+
 res = s.document.get_document_brain_id_(brain_id='{{brain_id}}')
 
 if res.object is not None:
@@ -199,6 +203,7 @@ s = athenacopilotsdk.AthenaCopilotSDK(
         password="<YOUR_PASSWORD_HERE>",
     ),
 )
+
 
 res = s.document.get_document_brain_id_document_id_(brain_id='{{brain_id}}', document_id='020d69cb-197b-47ef-911b-ee45ee260839')
 
@@ -242,6 +247,7 @@ s = athenacopilotsdk.AthenaCopilotSDK(
     ),
 )
 
+
 res = s.document.delete_document_brain_id_document_id_(brain_id='{{brain_id}}', document_id='5ca417c0-6d74-4752-a9cd-e2813ea67fd6')
 
 if res.object is not None:
@@ -283,6 +289,7 @@ s = athenacopilotsdk.AthenaCopilotSDK(
         password="<YOUR_PASSWORD_HERE>",
     ),
 )
+
 
 res = s.document.post_document_brain_id_file(brain_id='{{brain_id}}', request_body=operations.PostDocumentBrainIDFileRequestBody())
 

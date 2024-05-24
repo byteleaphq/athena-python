@@ -5,7 +5,7 @@ from .sdkconfiguration import SDKConfiguration
 from athenacopilotsdk import utils
 from athenacopilotsdk._hooks import AfterErrorContext, AfterSuccessContext, BeforeRequestContext, HookContext
 from athenacopilotsdk.models import components, errors, operations
-from typing import Optional
+from typing import List, Optional
 
 class Brain:
     sdk_configuration: SDKConfiguration
@@ -61,8 +61,8 @@ class Brain:
             
             # pylint: disable=no-else-return
             if utils.match_content_type(http_res.headers.get('Content-Type') or '', 'application/json'):                
-                out = utils.unmarshal_json(http_res.text, Optional[operations.PostBrainResponseBody])
-                res.object = out
+                out = utils.unmarshal_json(http_res.text, Optional[components.Brain])
+                res.brain = out
             else:
                 content_type = http_res.headers.get('Content-Type')
                 raise errors.SDKError(f'unknown content-type received: {content_type}', http_res.status_code, http_res.text, http_res)
@@ -71,7 +71,7 @@ class Brain:
             
             # pylint: disable=no-else-return
             if utils.match_content_type(http_res.headers.get('Content-Type') or '', 'application/json'):                
-                out = utils.unmarshal_json(http_res.text, errors.PostBrainResponseBody)
+                out = utils.unmarshal_json(http_res.text, errors.PostBrainResponseBody, infer_missing=True)
                 out.http_meta = components.HTTPMetadata(request=req, response=http_res)
                 raise out
             else:
@@ -84,7 +84,7 @@ class Brain:
             
             # pylint: disable=no-else-return
             if utils.match_content_type(http_res.headers.get('Content-Type') or '', 'application/json'):                
-                out = utils.unmarshal_json(http_res.text, errors.PostBrainBrainResponseBody)
+                out = utils.unmarshal_json(http_res.text, errors.PostBrainBrainResponseBody, infer_missing=True)
                 out.http_meta = components.HTTPMetadata(request=req, response=http_res)
                 raise out
             else:
@@ -140,8 +140,8 @@ class Brain:
             
             # pylint: disable=no-else-return
             if utils.match_content_type(http_res.headers.get('Content-Type') or '', 'application/json'):                
-                out = utils.unmarshal_json(http_res.text, Optional[operations.GetBrainResponseBody])
-                res.object = out
+                out = utils.unmarshal_json(http_res.text, Optional[List[components.Brain]])
+                res.brains = out
             else:
                 content_type = http_res.headers.get('Content-Type')
                 raise errors.SDKError(f'unknown content-type received: {content_type}', http_res.status_code, http_res.text, http_res)
@@ -205,8 +205,8 @@ class Brain:
             
             # pylint: disable=no-else-return
             if utils.match_content_type(http_res.headers.get('Content-Type') or '', 'application/json'):                
-                out = utils.unmarshal_json(http_res.text, Optional[operations.PutBrainBrainIDResponseBody])
-                res.object = out
+                out = utils.unmarshal_json(http_res.text, Optional[components.Brain])
+                res.brain = out
             else:
                 content_type = http_res.headers.get('Content-Type')
                 raise errors.SDKError(f'unknown content-type received: {content_type}', http_res.status_code, http_res.text, http_res)
@@ -217,7 +217,7 @@ class Brain:
             
             # pylint: disable=no-else-return
             if utils.match_content_type(http_res.headers.get('Content-Type') or '', 'application/json'):                
-                out = utils.unmarshal_json(http_res.text, errors.PutBrainBrainIDResponseBody)
+                out = utils.unmarshal_json(http_res.text, errors.PutBrainBrainIDResponseBody, infer_missing=True)
                 out.http_meta = components.HTTPMetadata(request=req, response=http_res)
                 raise out
             else:
@@ -277,8 +277,8 @@ class Brain:
             
             # pylint: disable=no-else-return
             if utils.match_content_type(http_res.headers.get('Content-Type') or '', 'application/json'):                
-                out = utils.unmarshal_json(http_res.text, Optional[operations.GetBrainBrainIDResponseBody])
-                res.object = out
+                out = utils.unmarshal_json(http_res.text, Optional[components.Brain])
+                res.brain = out
             else:
                 content_type = http_res.headers.get('Content-Type')
                 raise errors.SDKError(f'unknown content-type received: {content_type}', http_res.status_code, http_res.text, http_res)
@@ -287,7 +287,7 @@ class Brain:
             
             # pylint: disable=no-else-return
             if utils.match_content_type(http_res.headers.get('Content-Type') or '', 'application/json'):                
-                out = utils.unmarshal_json(http_res.text, errors.GetBrainBrainIDResponseBody)
+                out = utils.unmarshal_json(http_res.text, errors.GetBrainBrainIDResponseBody, infer_missing=True)
                 out.http_meta = components.HTTPMetadata(request=req, response=http_res)
                 raise out
             else:

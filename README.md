@@ -43,11 +43,12 @@ s = athenacopilotsdk.AthenaCopilotSDK(
     ),
 )
 
+
 res = s.brain.post_brain_(request=operations.PostBrainRequestBody(
     name='Test - brain',
 ))
 
-if res.object is not None:
+if res.brain is not None:
     # handle response
     pass
 
@@ -140,6 +141,7 @@ try:
     res = s.brain.post_brain_(request=operations.PostBrainRequestBody(
     name='Test - brain',
 ))
+
 except errors.PostBrainResponseBody as e:
     # handle exception
     raise(e)
@@ -150,7 +152,7 @@ except errors.SDKError as e:
     # handle exception
     raise(e)
 
-if res.object is not None:
+if res.brain is not None:
     # handle response
     pass
 
@@ -184,11 +186,12 @@ s = athenacopilotsdk.AthenaCopilotSDK(
     ),
 )
 
+
 res = s.brain.post_brain_(request=operations.PostBrainRequestBody(
     name='Test - brain',
 ))
 
-if res.object is not None:
+if res.brain is not None:
     # handle response
     pass
 
@@ -210,11 +213,12 @@ s = athenacopilotsdk.AthenaCopilotSDK(
     ),
 )
 
+
 res = s.brain.post_brain_(request=operations.PostBrainRequestBody(
     name='Test - brain',
 ))
 
-if res.object is not None:
+if res.brain is not None:
     # handle response
     pass
 
@@ -266,11 +270,12 @@ s = athenacopilotsdk.AthenaCopilotSDK(
     ),
 )
 
+
 res = s.brain.post_brain_(request=operations.PostBrainRequestBody(
     name='Test - brain',
 ))
 
-if res.object is not None:
+if res.brain is not None:
     # handle response
     pass
 

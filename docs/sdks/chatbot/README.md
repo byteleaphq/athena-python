@@ -29,6 +29,7 @@ s = athenacopilotsdk.AthenaCopilotSDK(
     ),
 )
 
+
 res = s.chatbot.post_chatbot_create(request=operations.PostChatbotCreateRequestBody(
     name='Chatbot -1',
     brain_id='1f1d7a6a-e45b-4974-a0ba-98935650cb9c',
@@ -77,6 +78,7 @@ s = athenacopilotsdk.AthenaCopilotSDK(
     ),
 )
 
+
 res = s.chatbot.post_chatbot_list()
 
 if res.object is not None:
@@ -111,6 +113,7 @@ s = athenacopilotsdk.AthenaCopilotSDK(
         password="<YOUR_PASSWORD_HERE>",
     ),
 )
+
 
 res = s.chatbot.post_chatbot_get(chatbot_id='7a2e792d-cf48-49d2-a36d-186be034a9dc')
 
@@ -153,6 +156,7 @@ s = athenacopilotsdk.AthenaCopilotSDK(
     ),
 )
 
+
 res = s.chatbot.get_chatbot_analytics(chatbot_id='1a718a80-71c0-414b-915c-5c5991597ac7')
 
 if res.object is not None:
@@ -194,6 +198,7 @@ s = athenacopilotsdk.AthenaCopilotSDK(
     ),
 )
 
+
 res = s.chatbot.get_chatbot_get_messages(chatbot_id='1a718a80-71c0-414b-915c-5c5991597ac7')
 
 if res.object is not None:
@@ -234,6 +239,7 @@ s = athenacopilotsdk.AthenaCopilotSDK(
         password="<YOUR_PASSWORD_HERE>",
     ),
 )
+
 
 res = s.chatbot.post_chatbot_update(request=operations.PostChatbotUpdateRequestBody(
     name='Chatbot -1',
@@ -282,6 +288,7 @@ s = athenacopilotsdk.AthenaCopilotSDK(
     ),
 )
 
+
 res = s.chatbot.post_chatbot_delete(chatbot_id='2de69bc3-3f60-46a2-be30-e95c98ab7a87')
 
 if res.object is not None:
@@ -322,6 +329,7 @@ s = athenacopilotsdk.AthenaCopilotSDK(
         password="<YOUR_PASSWORD_HERE>",
     ),
 )
+
 
 res = s.chatbot.post_chatbot_reset(chatbot_id='c7af119a-a5c6-47a4-a5fd-fbf96ef08851')
 

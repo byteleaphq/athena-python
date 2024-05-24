@@ -35,9 +35,10 @@ class PutChatChatIDResponseBody:
 
 
 
+@dataclass_json(undefined=Undefined.EXCLUDE)
 @dataclasses.dataclass
 class PutChatChatIDResponse:
-    http_meta: components_httpmetadata.HTTPMetadata = dataclasses.field()
+    http_meta: components_httpmetadata.HTTPMetadata = dataclasses.field(metadata={'dataclasses_json': { 'exclude': lambda f: True }})
     headers: Dict[str, List[str]] = dataclasses.field()
     object: Optional[PutChatChatIDResponseBody] = dataclasses.field(default=None)
     r"""OK"""

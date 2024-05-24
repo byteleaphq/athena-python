@@ -25,6 +25,7 @@ s = athenacopilotsdk.AthenaCopilotSDK(
     ),
 )
 
+
 res = s.integration.get_integration_integration_name_connect(integration_name='notion')
 
 if res.object is not None:
@@ -65,6 +66,7 @@ s = athenacopilotsdk.AthenaCopilotSDK(
         password="<YOUR_PASSWORD_HERE>",
     ),
 )
+
 
 res = s.integration.get_integration_integration_name_disconnect(integration_name='notion')
 
@@ -107,6 +109,7 @@ s = athenacopilotsdk.AthenaCopilotSDK(
     ),
 )
 
+
 res = s.integration.get_integration_integration_name_list(integration_name='confluence')
 
 if res.object is not None:
@@ -147,6 +150,7 @@ s = athenacopilotsdk.AthenaCopilotSDK(
         password="<YOUR_PASSWORD_HERE>",
     ),
 )
+
 
 res = s.integration.post_integration_integration_name_add(integration_name='notion', request_body=operations.PostIntegrationIntegrationNameAddRequestBody(
     brain_id='1f1d7a6a-e45b-4974-a0ba-98935650cb9c',

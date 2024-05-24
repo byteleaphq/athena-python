@@ -22,6 +22,7 @@ s = athenacopilotsdk.AthenaCopilotSDK(
     ),
 )
 
+
 res = s.ogranisation.get_organisation_()
 
 if res.object is not None:

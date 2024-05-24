@@ -1,20 +1,21 @@
 lockVersion: 2.0.0
 id: 88029c87-fb19-4748-a926-76e977e7e0ac
 management:
-  docChecksum: 2dbcb53570a1054a09243a069658e710
+  docChecksum: c3f188f5c5f5308c6fcc257096f184d8
   docVersion: 1.0.0
-  speakeasyVersion: 1.295.0
-  generationVersion: 2.333.3
-  releaseVersion: 0.0.1
-  configChecksum: ecdf4c700017bdc7a093ff9ba73592b1
+  speakeasyVersion: 1.295.2
+  generationVersion: 2.335.5
+  releaseVersion: 0.1.0
+  configChecksum: 584d6bc7cd304bd057d1c9adc9fb7abf
 features:
   python:
     additionalDependencies: 0.1.0
-    core: 4.6.7
+    core: 4.6.8
     flattening: 2.81.1
     globalSecurity: 2.83.5
     globalSecurityCallbacks: 0.1.0
     globalServerURLs: 2.82.2
+    nullables: 0.1.0
     responseFormat: 0.1.0
     sdkHooks: 0.1.0
 generatedFiles:
@@ -66,6 +67,7 @@ generatedFiles:
   - src/athenacopilotsdk/models/operations/get_integration_integration_name_list.py
   - src/athenacopilotsdk/models/operations/post_integration_integration_name_add.py
   - src/athenacopilotsdk/models/operations/get_organisation_.py
+  - src/athenacopilotsdk/models/components/brain.py
   - src/athenacopilotsdk/models/components/httpmetadata.py
   - src/athenacopilotsdk/models/components/security.py
   - src/athenacopilotsdk/models/errors/post_brain_.py
@@ -77,16 +79,12 @@ generatedFiles:
   - src/athenacopilotsdk/models/operations/__init__.py
   - src/athenacopilotsdk/models/components/__init__.py
   - docs/models/operations/postbrainrequestbody.md
-  - docs/models/operations/postbrainresponsebody.md
   - docs/models/operations/postbrainresponse.md
-  - docs/models/operations/getbrainresponsebody.md
   - docs/models/operations/getbrainresponse.md
   - docs/models/operations/putbrainbrainidrequestbody.md
   - docs/models/operations/putbrainbrainidrequest.md
-  - docs/models/operations/putbrainbrainidresponsebody.md
   - docs/models/operations/putbrainbrainidresponse.md
   - docs/models/operations/getbrainbrainidrequest.md
-  - docs/models/operations/getbrainbrainidresponsebody.md
   - docs/models/operations/getbrainbrainidresponse.md
   - docs/models/operations/deletebrainbrainidrequest.md
   - docs/models/operations/deletebrainbrainidresponsebody.md
@@ -175,6 +173,9 @@ generatedFiles:
   - docs/models/operations/postintegrationintegrationnameaddresponse.md
   - docs/models/operations/getorganisationresponsebody.md
   - docs/models/operations/getorganisationresponse.md
+  - docs/models/components/activefeatures.md
+  - docs/models/components/metadataschema.md
+  - docs/models/components/brain.md
   - docs/models/components/httpmetadata.md
   - docs/models/components/security.md
   - docs/models/errors/postbrainbrainresponsebody.md
