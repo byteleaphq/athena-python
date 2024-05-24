@@ -1,0 +1,11 @@
+workflowVersion: 1.0.0
+sources:
+    athenacopilot:
+        inputs:
+            - location: ../../../Downloads/openapi.yaml
+        registry:
+            location: registry.speakeasyapi.dev/shreyaan-fcm/shreyaan/athenacopilot
+targets:
+    my-first-target:
+        target: python
+        source: athenacopilot

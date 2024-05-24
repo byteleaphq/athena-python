@@ -1,0 +1,27 @@
+speakeasyVersion: 1.295.0
+sources:
+    athenacopilot:
+        sourceNamespace: athenacopilot
+        sourceRevisionDigest: sha256:c188cab0410a8e42b529a802d3b0f6e6f23e9abfdb75171ce682138471a308f1
+        sourceBlobDigest: sha256:7e69459013e40faf392c03289c20ee5e99f26064f05c803fe662c5d686fe1cb7
+        tags:
+            - latest
+targets:
+    my-first-target:
+        source: athenacopilot
+        sourceNamespace: athenacopilot
+        sourceRevisionDigest: sha256:c188cab0410a8e42b529a802d3b0f6e6f23e9abfdb75171ce682138471a308f1
+        sourceBlobDigest: sha256:7e69459013e40faf392c03289c20ee5e99f26064f05c803fe662c5d686fe1cb7
+        outLocation: /Users/work/Desktop/sdk/athena-copilot-sdk-python
+workflow:
+    workflowVersion: 1.0.0
+    sources:
+        athenacopilot:
+            inputs:
+                - location: ../../../Downloads/openapi.yaml
+            registry:
+                location: registry.speakeasyapi.dev/shreyaan-fcm/shreyaan/athenacopilot
+    targets:
+        my-first-target:
+            target: python
+            source: athenacopilot

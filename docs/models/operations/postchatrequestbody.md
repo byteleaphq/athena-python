@@ -1,0 +1,10 @@
+# PostChatRequestBody
+
+
+## Fields
+
+| Field                                                                      | Type                                                                       | Required                                                                   | Description                                                                | Example                                                                    |
+| -------------------------------------------------------------------------- | -------------------------------------------------------------------------- | -------------------------------------------------------------------------- | -------------------------------------------------------------------------- | -------------------------------------------------------------------------- |
+| `brain_id`                                                                 | *str*                                                                      | :heavy_check_mark:                                                         | The ID of the brain to associate with the chat                             |                                                                            |
+| `name`                                                                     | *str*                                                                      | :heavy_check_mark:                                                         | The name of the chat                                                       | Test_chat2                                                                 |
+| `integration`                                                              | [Optional[operations.Integration]](../../models/operations/integration.md) | :heavy_minus_sign:                                                         | The integration to use for the chat                                        | files                                                                      |
