@@ -91,7 +91,7 @@ if res.brain is not None:
 ### [chatbot](https://github.com/byteleaphq/athena-python/blob/main/docs/sdks/chatbot/README.md)
 
 - [post_chatbot_create](https://github.com/byteleaphq/athena-python/blob/main/docs/sdks/chatbot/README.md#post_chatbot_create) - Create Chatbot
-- [post_chatbot_list](https://github.com/byteleaphq/athena-python/blob/main/docs/sdks/chatbot/README.md#post_chatbot_list) - List Chatbots
+- [get_chatbot_list](https://github.com/byteleaphq/athena-python/blob/main/docs/sdks/chatbot/README.md#get_chatbot_list) - List Chatbots
 - [post_chatbot_get](https://github.com/byteleaphq/athena-python/blob/main/docs/sdks/chatbot/README.md#post_chatbot_get) - Get Chatbot
 - [get_chatbot_analytics](https://github.com/byteleaphq/athena-python/blob/main/docs/sdks/chatbot/README.md#get_chatbot_analytics) - Get Chatbot analytics
 - [get_chatbot_get_messages](https://github.com/byteleaphq/athena-python/blob/main/docs/sdks/chatbot/README.md#get_chatbot_get_messages) - Get Chatbot messages

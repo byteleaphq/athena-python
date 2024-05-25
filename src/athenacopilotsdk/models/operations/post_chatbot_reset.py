@@ -2,6 +2,7 @@
 
 from __future__ import annotations
 import dataclasses
+from ...models.components import chatbotresponse as components_chatbotresponse
 from ...models.components import httpmetadata as components_httpmetadata
 from dataclasses_json import Undefined, dataclass_json
 from typing import Dict, List, Optional
@@ -14,19 +15,12 @@ class PostChatbotResetRequest:
 
 
 
-@dataclasses.dataclass
-class PostChatbotResetResponseBody:
-    r"""OK"""
-    
-
-
-
 @dataclass_json(undefined=Undefined.EXCLUDE)
 @dataclasses.dataclass
 class PostChatbotResetResponse:
     http_meta: components_httpmetadata.HTTPMetadata = dataclasses.field(metadata={'dataclasses_json': { 'exclude': lambda f: True }})
     headers: Dict[str, List[str]] = dataclasses.field()
-    object: Optional[PostChatbotResetResponseBody] = dataclasses.field(default=None)
+    chatbot_response: Optional[components_chatbotresponse.ChatbotResponse] = dataclasses.field(default=None)
     r"""OK"""
     
 

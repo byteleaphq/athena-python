@@ -1,6 +1,6 @@
-# PostChatListInteractionsResponseBody
+# GetIntegrationIntegrationNameDisconnectResponseBody
 
-OK
+Empty object
 
 
 ## Fields

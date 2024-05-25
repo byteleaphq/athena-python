@@ -200,7 +200,7 @@ s = athenacopilotsdk.AthenaCopilotSDK(
 
 res = s.brain.delete_brain_brain_id_(brain_id='{{brain_id}}')
 
-if res.object is not None:
+if res.delete_response is not None:
     # handle response
     pass
 

@@ -70,7 +70,7 @@ s = athenacopilotsdk.AthenaCopilotSDK(
 
 res = s.integration.get_integration_integration_name_disconnect(integration_name='notion')
 
-if res is not None:
+if res.object is not None:
     # handle response
     pass
 
@@ -112,7 +112,7 @@ s = athenacopilotsdk.AthenaCopilotSDK(
 
 res = s.integration.get_integration_integration_name_list(integration_name='confluence')
 
-if res.object is not None:
+if res.response_bodies is not None:
     # handle response
     pass
 

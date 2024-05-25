@@ -5,7 +5,7 @@ from .sdkconfiguration import SDKConfiguration
 from athenacopilotsdk import utils
 from athenacopilotsdk._hooks import AfterErrorContext, AfterSuccessContext, BeforeRequestContext, HookContext
 from athenacopilotsdk.models import components, errors, operations
-from typing import Optional
+from typing import List, Optional
 
 class Chatbot:
     sdk_configuration: SDKConfiguration
@@ -61,8 +61,8 @@ class Chatbot:
             
             # pylint: disable=no-else-return
             if utils.match_content_type(http_res.headers.get('Content-Type') or '', 'application/json'):                
-                out = utils.unmarshal_json(http_res.text, Optional[operations.PostChatbotCreateResponseBody])
-                res.object = out
+                out = utils.unmarshal_json(http_res.text, Optional[List[components.ChatbotResponse]])
+                res.chatbot_responses = out
             else:
                 content_type = http_res.headers.get('Content-Type')
                 raise errors.SDKError(f'unknown content-type received: {content_type}', http_res.status_code, http_res.text, http_res)
@@ -75,9 +75,13 @@ class Chatbot:
 
     
     
-    def post_chatbot_list(self) -> operations.PostChatbotListResponse:
+    def get_chatbot_list(self, brain_id: Optional[str] = None) -> operations.GetChatbotListResponse:
         r"""List Chatbots"""
-        hook_ctx = HookContext(operation_id='post_/chatbot/list', oauth2_scopes=[], security_source=self.sdk_configuration.security)
+        hook_ctx = HookContext(operation_id='get_/chatbot/list', oauth2_scopes=[], security_source=self.sdk_configuration.security)
+        request = operations.GetChatbotListRequest(
+            brain_id=brain_id,
+        )
+        
         base_url = utils.template_url(*self.sdk_configuration.get_server_details())
         
         url = base_url + '/chatbot/list'
@@ -87,12 +91,13 @@ class Chatbot:
         else:
             headers, query_params = utils.get_security(self.sdk_configuration.security)
         
+        query_params = { **utils.get_query_params(request), **query_params }
         headers['Accept'] = 'application/json'
         headers['user-agent'] = self.sdk_configuration.user_agent
         client = self.sdk_configuration.client
         
         try:
-            req = client.prepare_request(requests_http.Request('POST', url, params=query_params, headers=headers))
+            req = client.prepare_request(requests_http.Request('GET', url, params=query_params, headers=headers))
             req = self.sdk_configuration.get_hooks().before_request(BeforeRequestContext(hook_ctx), req)
             http_res = client.send(req)
         except Exception as e:
@@ -111,15 +116,15 @@ class Chatbot:
             
         
         
-        res = operations.PostChatbotListResponse(http_meta=components.HTTPMetadata(request=req, response=http_res), headers=None)
+        res = operations.GetChatbotListResponse(http_meta=components.HTTPMetadata(request=req, response=http_res), headers=None)
         
         if http_res.status_code == 200:
             res.headers = http_res.headers
             
             # pylint: disable=no-else-return
             if utils.match_content_type(http_res.headers.get('Content-Type') or '', 'application/json'):                
-                out = utils.unmarshal_json(http_res.text, Optional[operations.PostChatbotListResponseBody])
-                res.object = out
+                out = utils.unmarshal_json(http_res.text, Optional[List[components.ChatbotResponse]])
+                res.chatbot_responses = out
             else:
                 content_type = http_res.headers.get('Content-Type')
                 raise errors.SDKError(f'unknown content-type received: {content_type}', http_res.status_code, http_res.text, http_res)
@@ -180,8 +185,8 @@ class Chatbot:
             
             # pylint: disable=no-else-return
             if utils.match_content_type(http_res.headers.get('Content-Type') or '', 'application/json'):                
-                out = utils.unmarshal_json(http_res.text, Optional[operations.PostChatbotGetResponseBody])
-                res.object = out
+                out = utils.unmarshal_json(http_res.text, Optional[components.ChatbotResponse])
+                res.chatbot_response = out
             else:
                 content_type = http_res.headers.get('Content-Type')
                 raise errors.SDKError(f'unknown content-type received: {content_type}', http_res.status_code, http_res.text, http_res)
@@ -242,8 +247,8 @@ class Chatbot:
             
             # pylint: disable=no-else-return
             if utils.match_content_type(http_res.headers.get('Content-Type') or '', 'application/json'):                
-                out = utils.unmarshal_json(http_res.text, Optional[operations.GetChatbotAnalyticsResponseBody])
-                res.object = out
+                out = utils.unmarshal_json(http_res.text, Optional[components.ChatbotAnalytics])
+                res.chatbot_analytics = out
             else:
                 content_type = http_res.headers.get('Content-Type')
                 raise errors.SDKError(f'unknown content-type received: {content_type}', http_res.status_code, http_res.text, http_res)
@@ -306,8 +311,8 @@ class Chatbot:
             
             # pylint: disable=no-else-return
             if utils.match_content_type(http_res.headers.get('Content-Type') or '', 'application/json'):                
-                out = utils.unmarshal_json(http_res.text, Optional[operations.GetChatbotGetMessagesResponseBody])
-                res.object = out
+                out = utils.unmarshal_json(http_res.text, Optional[components.ChatbotMessages])
+                res.chatbot_messages = out
             else:
                 content_type = http_res.headers.get('Content-Type')
                 raise errors.SDKError(f'unknown content-type received: {content_type}', http_res.status_code, http_res.text, http_res)
@@ -366,8 +371,8 @@ class Chatbot:
             
             # pylint: disable=no-else-return
             if utils.match_content_type(http_res.headers.get('Content-Type') or '', 'application/json'):                
-                out = utils.unmarshal_json(http_res.text, Optional[operations.PostChatbotUpdateResponseBody])
-                res.object = out
+                out = utils.unmarshal_json(http_res.text, Optional[List[components.ChatbotResponse]])
+                res.chatbot_responses = out
             else:
                 content_type = http_res.headers.get('Content-Type')
                 raise errors.SDKError(f'unknown content-type received: {content_type}', http_res.status_code, http_res.text, http_res)
@@ -428,8 +433,8 @@ class Chatbot:
             
             # pylint: disable=no-else-return
             if utils.match_content_type(http_res.headers.get('Content-Type') or '', 'application/json'):                
-                out = utils.unmarshal_json(http_res.text, Optional[operations.PostChatbotDeleteResponseBody])
-                res.object = out
+                out = utils.unmarshal_json(http_res.text, Optional[components.DeleteResponse])
+                res.delete_response = out
             else:
                 content_type = http_res.headers.get('Content-Type')
                 raise errors.SDKError(f'unknown content-type received: {content_type}', http_res.status_code, http_res.text, http_res)
@@ -490,8 +495,8 @@ class Chatbot:
             
             # pylint: disable=no-else-return
             if utils.match_content_type(http_res.headers.get('Content-Type') or '', 'application/json'):                
-                out = utils.unmarshal_json(http_res.text, Optional[operations.PostChatbotResetResponseBody])
-                res.object = out
+                out = utils.unmarshal_json(http_res.text, Optional[components.ChatbotResponse])
+                res.chatbot_response = out
             else:
                 content_type = http_res.headers.get('Content-Type')
                 raise errors.SDKError(f'unknown content-type received: {content_type}', http_res.status_code, http_res.text, http_res)

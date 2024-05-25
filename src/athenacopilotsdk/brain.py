@@ -349,8 +349,8 @@ class Brain:
             
             # pylint: disable=no-else-return
             if utils.match_content_type(http_res.headers.get('Content-Type') or '', 'application/json'):                
-                out = utils.unmarshal_json(http_res.text, Optional[operations.DeleteBrainBrainIDResponseBody])
-                res.object = out
+                out = utils.unmarshal_json(http_res.text, Optional[components.DeleteResponse])
+                res.delete_response = out
             else:
                 content_type = http_res.headers.get('Content-Type')
                 raise errors.SDKError(f'unknown content-type received: {content_type}', http_res.status_code, http_res.text, http_res)

@@ -5,7 +5,7 @@ from .sdkconfiguration import SDKConfiguration
 from athenacopilotsdk import utils
 from athenacopilotsdk._hooks import AfterErrorContext, AfterSuccessContext, BeforeRequestContext, HookContext
 from athenacopilotsdk.models import components, errors, operations
-from typing import Optional
+from typing import List, Optional
 
 class Document:
     sdk_configuration: SDKConfiguration
@@ -66,8 +66,8 @@ class Document:
             
             # pylint: disable=no-else-return
             if utils.match_content_type(http_res.headers.get('Content-Type') or '', 'application/json'):                
-                out = utils.unmarshal_json(http_res.text, Optional[operations.PostDocumentBrainIDTextResponseBody])
-                res.object = out
+                out = utils.unmarshal_json(http_res.text, Optional[components.Document])
+                res.document = out
             else:
                 content_type = http_res.headers.get('Content-Type')
                 raise errors.SDKError(f'unknown content-type received: {content_type}', http_res.status_code, http_res.text, http_res)
@@ -131,8 +131,8 @@ class Document:
             
             # pylint: disable=no-else-return
             if utils.match_content_type(http_res.headers.get('Content-Type') or '', 'application/json'):                
-                out = utils.unmarshal_json(http_res.text, Optional[operations.PostDocumentBrainIDURLResponseBody])
-                res.object = out
+                out = utils.unmarshal_json(http_res.text, Optional[components.Document])
+                res.document = out
             else:
                 content_type = http_res.headers.get('Content-Type')
                 raise errors.SDKError(f'unknown content-type received: {content_type}', http_res.status_code, http_res.text, http_res)
@@ -265,8 +265,8 @@ class Document:
             
             # pylint: disable=no-else-return
             if utils.match_content_type(http_res.headers.get('Content-Type') or '', 'application/json'):                
-                out = utils.unmarshal_json(http_res.text, Optional[operations.GetDocumentBrainIDResponseBody])
-                res.object = out
+                out = utils.unmarshal_json(http_res.text, Optional[List[components.Document]])
+                res.documents = out
             else:
                 content_type = http_res.headers.get('Content-Type')
                 raise errors.SDKError(f'unknown content-type received: {content_type}', http_res.status_code, http_res.text, http_res)
@@ -327,8 +327,8 @@ class Document:
             
             # pylint: disable=no-else-return
             if utils.match_content_type(http_res.headers.get('Content-Type') or '', 'application/json'):                
-                out = utils.unmarshal_json(http_res.text, Optional[operations.GetDocumentBrainIDDocumentIDResponseBody])
-                res.object = out
+                out = utils.unmarshal_json(http_res.text, Optional[components.Document])
+                res.document = out
             else:
                 content_type = http_res.headers.get('Content-Type')
                 raise errors.SDKError(f'unknown content-type received: {content_type}', http_res.status_code, http_res.text, http_res)
@@ -389,8 +389,8 @@ class Document:
             
             # pylint: disable=no-else-return
             if utils.match_content_type(http_res.headers.get('Content-Type') or '', 'application/json'):                
-                out = utils.unmarshal_json(http_res.text, Optional[operations.DeleteDocumentBrainIDDocumentIDResponseBody])
-                res.object = out
+                out = utils.unmarshal_json(http_res.text, Optional[components.DeleteResponse])
+                res.delete_response = out
             else:
                 content_type = http_res.headers.get('Content-Type')
                 raise errors.SDKError(f'unknown content-type received: {content_type}', http_res.status_code, http_res.text, http_res)
@@ -454,8 +454,8 @@ class Document:
             
             # pylint: disable=no-else-return
             if utils.match_content_type(http_res.headers.get('Content-Type') or '', 'application/json'):                
-                out = utils.unmarshal_json(http_res.text, Optional[operations.PostDocumentBrainIDFileResponseBody])
-                res.object = out
+                out = utils.unmarshal_json(http_res.text, Optional[components.Document])
+                res.document = out
             else:
                 content_type = http_res.headers.get('Content-Type')
                 raise errors.SDKError(f'unknown content-type received: {content_type}', http_res.status_code, http_res.text, http_res)

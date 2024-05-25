@@ -1,6 +1,6 @@
-# PostDocumentBrainIDURLResponseBody
+# DwData
 
-OK
+The data related to the data warehouse integration
 
 
 ## Fields

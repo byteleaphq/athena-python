@@ -3,6 +3,7 @@
 from __future__ import annotations
 import dataclasses
 from ...models.components import httpmetadata as components_httpmetadata
+from athenacopilotsdk import utils
 from dataclasses_json import Undefined, dataclass_json
 from typing import Dict, List, Optional
 
@@ -15,9 +16,12 @@ class GetDocumentBrainIDDocumentIDDownloadRequest:
 
 
 
+@dataclass_json(undefined=Undefined.EXCLUDE)
 @dataclasses.dataclass
 class GetDocumentBrainIDDocumentIDDownloadResponseBody:
     r"""OK"""
+    url: Optional[str] = dataclasses.field(default=None, metadata={'dataclasses_json': { 'letter_case': utils.get_field_name('url'), 'exclude': lambda f: f is None }})
+    r"""The URL to download the document file. This URL is a pre-signed URL that provides temporary access to the document file hosted on a cloud storage service."""
     
 
 

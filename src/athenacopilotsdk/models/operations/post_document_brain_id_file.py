@@ -2,6 +2,7 @@
 
 from __future__ import annotations
 import dataclasses
+from ...models.components import document as components_document
 from ...models.components import httpmetadata as components_httpmetadata
 from dataclasses_json import Undefined, dataclass_json
 from typing import Dict, List, Optional
@@ -30,19 +31,12 @@ class PostDocumentBrainIDFileRequest:
 
 
 
-@dataclasses.dataclass
-class PostDocumentBrainIDFileResponseBody:
-    r"""OK"""
-    
-
-
-
 @dataclass_json(undefined=Undefined.EXCLUDE)
 @dataclasses.dataclass
 class PostDocumentBrainIDFileResponse:
     http_meta: components_httpmetadata.HTTPMetadata = dataclasses.field(metadata={'dataclasses_json': { 'exclude': lambda f: True }})
     headers: Dict[str, List[str]] = dataclasses.field()
-    object: Optional[PostDocumentBrainIDFileResponseBody] = dataclasses.field(default=None)
+    document: Optional[components_document.Document] = dataclasses.field(default=None)
     r"""OK"""
     
 

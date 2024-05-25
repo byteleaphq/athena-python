@@ -3,13 +3,34 @@
 from __future__ import annotations
 import dataclasses
 from ...models.components import httpmetadata as components_httpmetadata
+from athenacopilotsdk import utils
 from dataclasses_json import Undefined, dataclass_json
 from typing import Dict, List, Optional
 
 
+@dataclass_json(undefined=Undefined.EXCLUDE)
 @dataclasses.dataclass
 class GetOrganisationResponseBody:
     r"""OK"""
+    UNSET='__SPEAKEASY_UNSET__'
+    created_at: Optional[str] = dataclasses.field(default=None, metadata={'dataclasses_json': { 'letter_case': utils.get_field_name('created_at'), 'exclude': lambda f: f is None }})
+    r"""Creation timestamp of the organization"""
+    email: Optional[str] = dataclasses.field(default=None, metadata={'dataclasses_json': { 'letter_case': utils.get_field_name('email'), 'exclude': lambda f: f is None }})
+    r"""Email associated with the organization"""
+    id: Optional[int] = dataclasses.field(default=None, metadata={'dataclasses_json': { 'letter_case': utils.get_field_name('id'), 'exclude': lambda f: f is None }})
+    r"""ID of the organization"""
+    name: Optional[str] = dataclasses.field(default=None, metadata={'dataclasses_json': { 'letter_case': utils.get_field_name('name'), 'exclude': lambda f: f is None }})
+    r"""Name of the organization"""
+    org_name: Optional[str] = dataclasses.field(default=UNSET, metadata={'dataclasses_json': { 'letter_case': utils.get_field_name('org_name'), 'exclude': lambda f: f is GetOrganisationResponseBody.UNSET }})
+    r"""Name of the organization (same as 'name')"""
+    org_uuid: Optional[str] = dataclasses.field(default=None, metadata={'dataclasses_json': { 'letter_case': utils.get_field_name('org_uuid'), 'exclude': lambda f: f is None }})
+    r"""UUID of the organization"""
+    role: Optional[str] = dataclasses.field(default=None, metadata={'dataclasses_json': { 'letter_case': utils.get_field_name('role'), 'exclude': lambda f: f is None }})
+    r"""Role of the user in the organization"""
+    token: Optional[str] = dataclasses.field(default=None, metadata={'dataclasses_json': { 'letter_case': utils.get_field_name('token'), 'exclude': lambda f: f is None }})
+    r"""Invite token for the organization"""
+    user_uuid: Optional[str] = dataclasses.field(default=None, metadata={'dataclasses_json': { 'letter_case': utils.get_field_name('user_uuid'), 'exclude': lambda f: f is None }})
+    r"""UUID of the user"""
     
 
 

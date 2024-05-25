@@ -1,15 +1,16 @@
 lockVersion: 2.0.0
 id: 88029c87-fb19-4748-a926-76e977e7e0ac
 management:
-  docChecksum: c3f188f5c5f5308c6fcc257096f184d8
+  docChecksum: 8abce4bf0435061baee4ff5352c3c3d1
   docVersion: 1.0.0
-  speakeasyVersion: 1.295.2
-  generationVersion: 2.335.5
-  releaseVersion: 0.1.0
-  configChecksum: 584d6bc7cd304bd057d1c9adc9fb7abf
+  speakeasyVersion: 1.296.1
+  generationVersion: 2.338.1
+  releaseVersion: 0.2.0
+  configChecksum: 644d519310753c50a46a05c44cd211b0
 features:
   python:
     additionalDependencies: 0.1.0
+    additionalProperties: 0.1.0
     core: 4.6.8
     flattening: 2.81.1
     globalSecurity: 2.83.5
@@ -18,6 +19,7 @@ features:
     nullables: 0.1.0
     responseFormat: 0.1.0
     sdkHooks: 0.1.0
+    unions: 2.82.7
 generatedFiles:
   - src/athenacopilotsdk/sdkconfiguration.py
   - src/athenacopilotsdk/brain.py
@@ -55,7 +57,7 @@ generatedFiles:
   - src/athenacopilotsdk/models/operations/post_chat_get_response.py
   - src/athenacopilotsdk/models/operations/post_chat_list_interactions.py
   - src/athenacopilotsdk/models/operations/post_chatbot_create.py
-  - src/athenacopilotsdk/models/operations/post_chatbot_list.py
+  - src/athenacopilotsdk/models/operations/get_chatbot_list.py
   - src/athenacopilotsdk/models/operations/post_chatbot_get.py
   - src/athenacopilotsdk/models/operations/get_chatbot_analytics.py
   - src/athenacopilotsdk/models/operations/get_chatbot_get_messages.py
@@ -69,6 +71,13 @@ generatedFiles:
   - src/athenacopilotsdk/models/operations/get_organisation_.py
   - src/athenacopilotsdk/models/components/brain.py
   - src/athenacopilotsdk/models/components/httpmetadata.py
+  - src/athenacopilotsdk/models/components/deleteresponse.py
+  - src/athenacopilotsdk/models/components/document.py
+  - src/athenacopilotsdk/models/components/chat.py
+  - src/athenacopilotsdk/models/components/chatinteraction.py
+  - src/athenacopilotsdk/models/components/chatbotresponse.py
+  - src/athenacopilotsdk/models/components/chatbotanalytics.py
+  - src/athenacopilotsdk/models/components/chatbotmessages.py
   - src/athenacopilotsdk/models/components/security.py
   - src/athenacopilotsdk/models/errors/post_brain_.py
   - src/athenacopilotsdk/models/errors/put_brain_brain_id_.py
@@ -87,85 +96,66 @@ generatedFiles:
   - docs/models/operations/getbrainbrainidrequest.md
   - docs/models/operations/getbrainbrainidresponse.md
   - docs/models/operations/deletebrainbrainidrequest.md
-  - docs/models/operations/deletebrainbrainidresponsebody.md
   - docs/models/operations/deletebrainbrainidresponse.md
   - docs/models/operations/postdocumentbrainidtextrequestbody.md
   - docs/models/operations/postdocumentbrainidtextrequest.md
-  - docs/models/operations/postdocumentbrainidtextresponsebody.md
   - docs/models/operations/postdocumentbrainidtextresponse.md
   - docs/models/operations/postdocumentbrainidurlrequestbody.md
   - docs/models/operations/postdocumentbrainidurlrequest.md
-  - docs/models/operations/postdocumentbrainidurlresponsebody.md
   - docs/models/operations/postdocumentbrainidurlresponse.md
   - docs/models/operations/getdocumentbrainiddocumentiddownloadrequest.md
   - docs/models/operations/getdocumentbrainiddocumentiddownloadresponsebody.md
   - docs/models/operations/getdocumentbrainiddocumentiddownloadresponse.md
   - docs/models/operations/getdocumentbrainidrequest.md
-  - docs/models/operations/getdocumentbrainidresponsebody.md
   - docs/models/operations/getdocumentbrainidresponse.md
   - docs/models/operations/getdocumentbrainiddocumentidrequest.md
-  - docs/models/operations/getdocumentbrainiddocumentidresponsebody.md
   - docs/models/operations/getdocumentbrainiddocumentidresponse.md
   - docs/models/operations/deletedocumentbrainiddocumentidrequest.md
-  - docs/models/operations/deletedocumentbrainiddocumentidresponsebody.md
   - docs/models/operations/deletedocumentbrainiddocumentidresponse.md
   - docs/models/operations/file.md
   - docs/models/operations/postdocumentbrainidfilerequestbody.md
   - docs/models/operations/postdocumentbrainidfilerequest.md
-  - docs/models/operations/postdocumentbrainidfileresponsebody.md
   - docs/models/operations/postdocumentbrainidfileresponse.md
   - docs/models/operations/integration.md
   - docs/models/operations/postchatrequestbody.md
-  - docs/models/operations/postchatresponsebody.md
   - docs/models/operations/postchatresponse.md
-  - docs/models/operations/getchatresponsebody.md
   - docs/models/operations/getchatresponse.md
   - docs/models/operations/getchatchatidrequest.md
-  - docs/models/operations/getchatchatidresponsebody.md
   - docs/models/operations/getchatchatidresponse.md
   - docs/models/operations/putchatchatidrequestbody.md
   - docs/models/operations/putchatchatidrequest.md
-  - docs/models/operations/putchatchatidresponsebody.md
   - docs/models/operations/putchatchatidresponse.md
   - docs/models/operations/deletechatchatidrequest.md
-  - docs/models/operations/deletechatchatidresponsebody.md
   - docs/models/operations/deletechatchatidresponse.md
   - docs/models/operations/postchatgetresponserequestbody.md
-  - docs/models/operations/postchatgetresponseresponsebody.md
   - docs/models/operations/postchatgetresponseresponse.md
   - docs/models/operations/postchatlistinteractionsrequestbody.md
-  - docs/models/operations/postchatlistinteractionsresponsebody.md
   - docs/models/operations/postchatlistinteractionsresponse.md
   - docs/models/operations/postchatbotcreaterequestbody.md
-  - docs/models/operations/postchatbotcreateresponsebody.md
   - docs/models/operations/postchatbotcreateresponse.md
-  - docs/models/operations/postchatbotlistresponsebody.md
-  - docs/models/operations/postchatbotlistresponse.md
+  - docs/models/operations/getchatbotlistrequest.md
+  - docs/models/operations/getchatbotlistresponse.md
   - docs/models/operations/postchatbotgetrequest.md
-  - docs/models/operations/postchatbotgetresponsebody.md
   - docs/models/operations/postchatbotgetresponse.md
   - docs/models/operations/getchatbotanalyticsrequest.md
-  - docs/models/operations/getchatbotanalyticsresponsebody.md
   - docs/models/operations/getchatbotanalyticsresponse.md
   - docs/models/operations/getchatbotgetmessagesrequest.md
-  - docs/models/operations/getchatbotgetmessagesresponsebody.md
   - docs/models/operations/getchatbotgetmessagesresponse.md
   - docs/models/operations/postchatbotupdaterequestbody.md
-  - docs/models/operations/postchatbotupdateresponsebody.md
   - docs/models/operations/postchatbotupdateresponse.md
   - docs/models/operations/postchatbotdeleterequest.md
-  - docs/models/operations/postchatbotdeleteresponsebody.md
   - docs/models/operations/postchatbotdeleteresponse.md
   - docs/models/operations/postchatbotresetrequest.md
-  - docs/models/operations/postchatbotresetresponsebody.md
   - docs/models/operations/postchatbotresetresponse.md
   - docs/models/operations/getintegrationintegrationnameconnectrequest.md
   - docs/models/operations/getintegrationintegrationnameconnectresponsebody.md
   - docs/models/operations/getintegrationintegrationnameconnectresponse.md
   - docs/models/operations/getintegrationintegrationnamedisconnectrequest.md
+  - docs/models/operations/getintegrationintegrationnamedisconnectresponsebody.md
   - docs/models/operations/getintegrationintegrationnamedisconnectresponse.md
   - docs/models/operations/getintegrationintegrationnamelistrequest.md
-  - docs/models/operations/getintegrationintegrationnamelistresponsebody.md
+  - docs/models/operations/content.md
+  - docs/models/operations/responsebody.md
   - docs/models/operations/getintegrationintegrationnamelistresponse.md
   - docs/models/operations/postintegrationintegrationnameaddrequestbody.md
   - docs/models/operations/postintegrationintegrationnameaddrequest.md
@@ -177,6 +167,24 @@ generatedFiles:
   - docs/models/components/metadataschema.md
   - docs/models/components/brain.md
   - docs/models/components/httpmetadata.md
+  - docs/models/components/deleteresponse.md
+  - docs/models/components/document.md
+  - docs/models/components/modelresponse.md
+  - docs/models/components/userinput.md
+  - docs/models/components/recentchathistory.md
+  - docs/models/components/defaultoptions.md
+  - docs/models/components/chat.md
+  - docs/models/components/dwdata.md
+  - docs/models/components/metadata.md
+  - docs/models/components/two.md
+  - docs/models/components/reference.md
+  - docs/models/components/chatinteraction.md
+  - docs/models/components/chatbotresponse.md
+  - docs/models/components/chatbotanalytics.md
+  - docs/models/components/reference2.md
+  - docs/models/components/chatbotmessagesreference.md
+  - docs/models/components/chatmessages.md
+  - docs/models/components/chatbotmessages.md
   - docs/models/components/security.md
   - docs/models/errors/postbrainbrainresponsebody.md
   - docs/models/errors/postbrainresponsebody.md

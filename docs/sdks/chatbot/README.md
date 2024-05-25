@@ -4,7 +4,7 @@
 ### Available Operations
 
 * [post_chatbot_create](#post_chatbot_create) - Create Chatbot
-* [post_chatbot_list](#post_chatbot_list) - List Chatbots
+* [get_chatbot_list](#get_chatbot_list) - List Chatbots
 * [post_chatbot_get](#post_chatbot_get) - Get Chatbot
 * [get_chatbot_analytics](#get_chatbot_analytics) - Get Chatbot analytics
 * [get_chatbot_get_messages](#get_chatbot_get_messages) - Get Chatbot messages
@@ -39,7 +39,7 @@ res = s.chatbot.post_chatbot_create(request=operations.PostChatbotCreateRequestB
     ],
 ))
 
-if res.object is not None:
+if res.chatbot_responses is not None:
     # handle response
     pass
 
@@ -61,7 +61,7 @@ if res.object is not None:
 | --------------- | --------------- | --------------- |
 | errors.SDKError | 4xx-5xx         | */*             |
 
-## post_chatbot_list
+## get_chatbot_list
 
 List Chatbots
 
@@ -79,18 +79,24 @@ s = athenacopilotsdk.AthenaCopilotSDK(
 )
 
 
-res = s.chatbot.post_chatbot_list()
+res = s.chatbot.get_chatbot_list(brain_id='<value>')
 
-if res.object is not None:
+if res.chatbot_responses is not None:
     # handle response
     pass
 
 ```
 
+### Parameters
+
+| Parameter                              | Type                                   | Required                               | Description                            |
+| -------------------------------------- | -------------------------------------- | -------------------------------------- | -------------------------------------- |
+| `brain_id`                             | *Optional[str]*                        | :heavy_minus_sign:                     | The ID of the brain to filter chatbots |
+
 
 ### Response
 
-**[operations.PostChatbotListResponse](../../models/operations/postchatbotlistresponse.md)**
+**[operations.GetChatbotListResponse](../../models/operations/getchatbotlistresponse.md)**
 ### Errors
 
 | Error Object    | Status Code     | Content Type    |
@@ -117,7 +123,7 @@ s = athenacopilotsdk.AthenaCopilotSDK(
 
 res = s.chatbot.post_chatbot_get(chatbot_id='7a2e792d-cf48-49d2-a36d-186be034a9dc')
 
-if res.object is not None:
+if res.chatbot_response is not None:
     # handle response
     pass
 
@@ -159,7 +165,7 @@ s = athenacopilotsdk.AthenaCopilotSDK(
 
 res = s.chatbot.get_chatbot_analytics(chatbot_id='1a718a80-71c0-414b-915c-5c5991597ac7')
 
-if res.object is not None:
+if res.chatbot_analytics is not None:
     # handle response
     pass
 
@@ -201,7 +207,7 @@ s = athenacopilotsdk.AthenaCopilotSDK(
 
 res = s.chatbot.get_chatbot_get_messages(chatbot_id='1a718a80-71c0-414b-915c-5c5991597ac7')
 
-if res.object is not None:
+if res.chatbot_messages is not None:
     # handle response
     pass
 
@@ -242,6 +248,7 @@ s = athenacopilotsdk.AthenaCopilotSDK(
 
 
 res = s.chatbot.post_chatbot_update(request=operations.PostChatbotUpdateRequestBody(
+    chatbot_id='1a718a80-71c0-414b-915c-5c5991597ac7',
     name='Chatbot -1',
     urls=[
         'https://byteleap.co',
@@ -249,7 +256,7 @@ res = s.chatbot.post_chatbot_update(request=operations.PostChatbotUpdateRequestB
     ],
 ))
 
-if res.object is not None:
+if res.chatbot_responses is not None:
     # handle response
     pass
 
@@ -291,7 +298,7 @@ s = athenacopilotsdk.AthenaCopilotSDK(
 
 res = s.chatbot.post_chatbot_delete(chatbot_id='2de69bc3-3f60-46a2-be30-e95c98ab7a87')
 
-if res.object is not None:
+if res.delete_response is not None:
     # handle response
     pass
 
@@ -333,7 +340,7 @@ s = athenacopilotsdk.AthenaCopilotSDK(
 
 res = s.chatbot.post_chatbot_reset(chatbot_id='c7af119a-a5c6-47a4-a5fd-fbf96ef08851')
 
-if res.object is not None:
+if res.chatbot_response is not None:
     # handle response
     pass
 

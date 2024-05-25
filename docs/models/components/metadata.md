@@ -1,6 +1,6 @@
-# GetChatbotAnalyticsResponseBody
+# Metadata
 
-OK
+The metadata associated with the interaction
 
 
 ## Fields

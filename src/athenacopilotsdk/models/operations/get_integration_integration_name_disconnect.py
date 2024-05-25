@@ -4,6 +4,7 @@ from __future__ import annotations
 import dataclasses
 from ...models.components import httpmetadata as components_httpmetadata
 from dataclasses_json import Undefined, dataclass_json
+from typing import Optional
 
 
 @dataclasses.dataclass
@@ -14,9 +15,18 @@ class GetIntegrationIntegrationNameDisconnectRequest:
 
 
 
+@dataclasses.dataclass
+class GetIntegrationIntegrationNameDisconnectResponseBody:
+    r"""Empty object"""
+    
+
+
+
 @dataclass_json(undefined=Undefined.EXCLUDE)
 @dataclasses.dataclass
 class GetIntegrationIntegrationNameDisconnectResponse:
     http_meta: components_httpmetadata.HTTPMetadata = dataclasses.field(metadata={'dataclasses_json': { 'exclude': lambda f: True }})
+    object: Optional[GetIntegrationIntegrationNameDisconnectResponseBody] = dataclasses.field(default=None)
+    r"""Successful response"""
     
 

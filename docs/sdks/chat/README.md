@@ -35,7 +35,7 @@ res = s.chat.post_chat_(request=operations.PostChatRequestBody(
     integration=operations.Integration.FILES,
 ))
 
-if res.object is not None:
+if res.chat is not None:
     # handle response
     pass
 
@@ -77,7 +77,7 @@ s = athenacopilotsdk.AthenaCopilotSDK(
 
 res = s.chat.get_chat_()
 
-if res.object is not None:
+if res.chats is not None:
     # handle response
     pass
 
@@ -113,7 +113,7 @@ s = athenacopilotsdk.AthenaCopilotSDK(
 
 res = s.chat.get_chat_chat_id_(chat_id='{{chat_id}}')
 
-if res.object is not None:
+if res.chat is not None:
     # handle response
     pass
 
@@ -157,9 +157,12 @@ res = s.chat.put_chat_chat_id_(chat_id='{{chat_id}}', request_body=operations.Pu
     temperature=None,
     name='Test_chat2',
     system_message='test system message',
+    additional_properties={
+
+    },
 ))
 
-if res.object is not None:
+if res.chats is not None:
     # handle response
     pass
 
@@ -202,7 +205,7 @@ s = athenacopilotsdk.AthenaCopilotSDK(
 
 res = s.chat.delete_chat_chat_id_(chat_id='8474f310-a2a9-4cf8-b16f-8d01a5a6b5fa')
 
-if res.object is not None:
+if res.delete_response is not None:
     # handle response
     pass
 
@@ -247,7 +250,7 @@ res = s.chat.post_chat_get_response(request=operations.PostChatGetResponseReques
     text='hi',
 ))
 
-if res.object is not None:
+if res.chat_interaction is not None:
     # handle response
     pass
 
@@ -291,7 +294,7 @@ res = s.chat.post_chat_list_interactions(request=operations.PostChatListInteract
     chat_thread_id='d504386d-6cba-4e38-96f0-aa16b83e1cd8',
 ))
 
-if res.object is not None:
+if res.chat_interactions is not None:
     # handle response
     pass
 

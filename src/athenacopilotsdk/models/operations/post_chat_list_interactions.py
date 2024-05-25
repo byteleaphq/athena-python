@@ -2,6 +2,7 @@
 
 from __future__ import annotations
 import dataclasses
+from ...models.components import chatinteraction as components_chatinteraction
 from ...models.components import httpmetadata as components_httpmetadata
 from athenacopilotsdk import utils
 from dataclasses_json import Undefined, dataclass_json
@@ -19,19 +20,12 @@ class PostChatListInteractionsRequestBody:
 
 
 
-@dataclasses.dataclass
-class PostChatListInteractionsResponseBody:
-    r"""OK"""
-    
-
-
-
 @dataclass_json(undefined=Undefined.EXCLUDE)
 @dataclasses.dataclass
 class PostChatListInteractionsResponse:
     http_meta: components_httpmetadata.HTTPMetadata = dataclasses.field(metadata={'dataclasses_json': { 'exclude': lambda f: True }})
     headers: Dict[str, List[str]] = dataclasses.field()
-    object: Optional[PostChatListInteractionsResponseBody] = dataclasses.field(default=None)
+    chat_interactions: Optional[List[components_chatinteraction.ChatInteraction]] = dataclasses.field(default=None)
     r"""OK"""
     
 

@@ -2,6 +2,7 @@
 
 from __future__ import annotations
 import dataclasses
+from ...models.components import chatbotresponse as components_chatbotresponse
 from ...models.components import httpmetadata as components_httpmetadata
 from athenacopilotsdk import utils
 from dataclasses_json import Undefined, dataclass_json
@@ -11,16 +12,12 @@ from typing import Dict, List, Optional
 @dataclass_json(undefined=Undefined.EXCLUDE)
 @dataclasses.dataclass
 class PostChatbotUpdateRequestBody:
-    name: Optional[str] = dataclasses.field(default=None, metadata={'dataclasses_json': { 'letter_case': utils.get_field_name('name'), 'exclude': lambda f: f is None }})
+    UNSET='__SPEAKEASY_UNSET__'
+    chatbot_id: Optional[str] = dataclasses.field(default=None, metadata={'dataclasses_json': { 'letter_case': utils.get_field_name('chatbot_id'), 'exclude': lambda f: f is None }})
+    r"""The id of the chatbot"""
+    name: Optional[str] = dataclasses.field(default=UNSET, metadata={'dataclasses_json': { 'letter_case': utils.get_field_name('name'), 'exclude': lambda f: f is PostChatbotUpdateRequestBody.UNSET }})
     r"""The name of the chatbot"""
-    urls: Optional[List[str]] = dataclasses.field(default=None, metadata={'dataclasses_json': { 'letter_case': utils.get_field_name('urls'), 'exclude': lambda f: f is None }})
-    
-
-
-
-@dataclasses.dataclass
-class PostChatbotUpdateResponseBody:
-    r"""OK"""
+    urls: Optional[List[str]] = dataclasses.field(default=UNSET, metadata={'dataclasses_json': { 'letter_case': utils.get_field_name('urls'), 'exclude': lambda f: f is PostChatbotUpdateRequestBody.UNSET }})
     
 
 
@@ -30,7 +27,7 @@ class PostChatbotUpdateResponseBody:
 class PostChatbotUpdateResponse:
     http_meta: components_httpmetadata.HTTPMetadata = dataclasses.field(metadata={'dataclasses_json': { 'exclude': lambda f: True }})
     headers: Dict[str, List[str]] = dataclasses.field()
-    object: Optional[PostChatbotUpdateResponseBody] = dataclasses.field(default=None)
+    chatbot_responses: Optional[List[components_chatbotresponse.ChatbotResponse]] = dataclasses.field(default=None)
     r"""OK"""
     
 

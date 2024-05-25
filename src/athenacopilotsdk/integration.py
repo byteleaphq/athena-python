@@ -5,7 +5,7 @@ from .sdkconfiguration import SDKConfiguration
 from athenacopilotsdk import utils
 from athenacopilotsdk._hooks import AfterErrorContext, AfterSuccessContext, BeforeRequestContext, HookContext
 from athenacopilotsdk.models import components, errors, operations
-from typing import Optional
+from typing import List, Optional
 
 class Integration:
     sdk_configuration: SDKConfiguration
@@ -92,7 +92,7 @@ class Integration:
         else:
             headers, query_params = utils.get_security(self.sdk_configuration.security)
         
-        headers['Accept'] = '*/*'
+        headers['Accept'] = 'application/json'
         headers['user-agent'] = self.sdk_configuration.user_agent
         client = self.sdk_configuration.client
         
@@ -119,7 +119,13 @@ class Integration:
         res = operations.GetIntegrationIntegrationNameDisconnectResponse(http_meta=components.HTTPMetadata(request=req, response=http_res))
         
         if http_res.status_code == 200:
-            pass
+            # pylint: disable=no-else-return
+            if utils.match_content_type(http_res.headers.get('Content-Type') or '', 'application/json'):                
+                out = utils.unmarshal_json(http_res.text, Optional[operations.GetIntegrationIntegrationNameDisconnectResponseBody])
+                res.object = out
+            else:
+                content_type = http_res.headers.get('Content-Type')
+                raise errors.SDKError(f'unknown content-type received: {content_type}', http_res.status_code, http_res.text, http_res)
         elif http_res.status_code >= 400 and http_res.status_code < 500 or http_res.status_code >= 500 and http_res.status_code < 600:
             raise errors.SDKError('API error occurred', http_res.status_code, http_res.text, http_res)
         else:
@@ -178,8 +184,8 @@ class Integration:
             
             # pylint: disable=no-else-return
             if utils.match_content_type(http_res.headers.get('Content-Type') or '', 'application/json'):                
-                out = utils.unmarshal_json(http_res.text, Optional[operations.GetIntegrationIntegrationNameListResponseBody])
-                res.object = out
+                out = utils.unmarshal_json(http_res.text, Optional[List[operations.ResponseBody]])
+                res.response_bodies = out
             else:
                 content_type = http_res.headers.get('Content-Type')
                 raise errors.SDKError(f'unknown content-type received: {content_type}', http_res.status_code, http_res.text, http_res)

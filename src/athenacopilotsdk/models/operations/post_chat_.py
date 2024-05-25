@@ -2,6 +2,7 @@
 
 from __future__ import annotations
 import dataclasses
+from ...models.components import chat as components_chat
 from ...models.components import httpmetadata as components_httpmetadata
 from athenacopilotsdk import utils
 from dataclasses_json import Undefined, dataclass_json
@@ -28,19 +29,12 @@ class PostChatRequestBody:
 
 
 
-@dataclasses.dataclass
-class PostChatResponseBody:
-    r"""CREATED"""
-    
-
-
-
 @dataclass_json(undefined=Undefined.EXCLUDE)
 @dataclasses.dataclass
 class PostChatResponse:
     http_meta: components_httpmetadata.HTTPMetadata = dataclasses.field(metadata={'dataclasses_json': { 'exclude': lambda f: True }})
     headers: Dict[str, List[str]] = dataclasses.field()
-    object: Optional[PostChatResponseBody] = dataclasses.field(default=None)
+    chat: Optional[components_chat.Chat] = dataclasses.field(default=None)
     r"""CREATED"""
     
 

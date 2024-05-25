@@ -5,7 +5,7 @@ from .sdkconfiguration import SDKConfiguration
 from athenacopilotsdk import utils
 from athenacopilotsdk._hooks import AfterErrorContext, AfterSuccessContext, BeforeRequestContext, HookContext
 from athenacopilotsdk.models import components, errors, operations
-from typing import Optional
+from typing import List, Optional
 
 class Chat:
     sdk_configuration: SDKConfiguration
@@ -63,8 +63,8 @@ class Chat:
             
             # pylint: disable=no-else-return
             if utils.match_content_type(http_res.headers.get('Content-Type') or '', 'application/json'):                
-                out = utils.unmarshal_json(http_res.text, Optional[operations.PostChatResponseBody])
-                res.object = out
+                out = utils.unmarshal_json(http_res.text, Optional[components.Chat])
+                res.chat = out
             else:
                 content_type = http_res.headers.get('Content-Type')
                 raise errors.SDKError(f'unknown content-type received: {content_type}', http_res.status_code, http_res.text, http_res)
@@ -120,8 +120,8 @@ class Chat:
             
             # pylint: disable=no-else-return
             if utils.match_content_type(http_res.headers.get('Content-Type') or '', 'application/json'):                
-                out = utils.unmarshal_json(http_res.text, Optional[operations.GetChatResponseBody])
-                res.object = out
+                out = utils.unmarshal_json(http_res.text, Optional[List[components.Chat]])
+                res.chats = out
             else:
                 content_type = http_res.headers.get('Content-Type')
                 raise errors.SDKError(f'unknown content-type received: {content_type}', http_res.status_code, http_res.text, http_res)
@@ -181,8 +181,8 @@ class Chat:
             
             # pylint: disable=no-else-return
             if utils.match_content_type(http_res.headers.get('Content-Type') or '', 'application/json'):                
-                out = utils.unmarshal_json(http_res.text, Optional[operations.GetChatChatIDResponseBody])
-                res.object = out
+                out = utils.unmarshal_json(http_res.text, Optional[components.Chat])
+                res.chat = out
             else:
                 content_type = http_res.headers.get('Content-Type')
                 raise errors.SDKError(f'unknown content-type received: {content_type}', http_res.status_code, http_res.text, http_res)
@@ -246,8 +246,8 @@ class Chat:
             
             # pylint: disable=no-else-return
             if utils.match_content_type(http_res.headers.get('Content-Type') or '', 'application/json'):                
-                out = utils.unmarshal_json(http_res.text, Optional[operations.PutChatChatIDResponseBody])
-                res.object = out
+                out = utils.unmarshal_json(http_res.text, Optional[List[components.Chat]])
+                res.chats = out
             else:
                 content_type = http_res.headers.get('Content-Type')
                 raise errors.SDKError(f'unknown content-type received: {content_type}', http_res.status_code, http_res.text, http_res)
@@ -307,8 +307,8 @@ class Chat:
             
             # pylint: disable=no-else-return
             if utils.match_content_type(http_res.headers.get('Content-Type') or '', 'application/json'):                
-                out = utils.unmarshal_json(http_res.text, Optional[operations.DeleteChatChatIDResponseBody])
-                res.object = out
+                out = utils.unmarshal_json(http_res.text, Optional[components.DeleteResponse])
+                res.delete_response = out
             else:
                 content_type = http_res.headers.get('Content-Type')
                 raise errors.SDKError(f'unknown content-type received: {content_type}', http_res.status_code, http_res.text, http_res)
@@ -367,8 +367,8 @@ class Chat:
             
             # pylint: disable=no-else-return
             if utils.match_content_type(http_res.headers.get('Content-Type') or '', 'application/json'):                
-                out = utils.unmarshal_json(http_res.text, Optional[operations.PostChatGetResponseResponseBody])
-                res.object = out
+                out = utils.unmarshal_json(http_res.text, Optional[components.ChatInteraction])
+                res.chat_interaction = out
             else:
                 content_type = http_res.headers.get('Content-Type')
                 raise errors.SDKError(f'unknown content-type received: {content_type}', http_res.status_code, http_res.text, http_res)
@@ -427,8 +427,8 @@ class Chat:
             
             # pylint: disable=no-else-return
             if utils.match_content_type(http_res.headers.get('Content-Type') or '', 'application/json'):                
-                out = utils.unmarshal_json(http_res.text, Optional[operations.PostChatListInteractionsResponseBody])
-                res.object = out
+                out = utils.unmarshal_json(http_res.text, Optional[List[components.ChatInteraction]])
+                res.chat_interactions = out
             else:
                 content_type = http_res.headers.get('Content-Type')
                 raise errors.SDKError(f'unknown content-type received: {content_type}', http_res.status_code, http_res.text, http_res)

@@ -1,0 +1,18 @@
+# ChatInteraction
+
+
+## Fields
+
+| Field                                                                | Type                                                                 | Required                                                             | Description                                                          |
+| -------------------------------------------------------------------- | -------------------------------------------------------------------- | -------------------------------------------------------------------- | -------------------------------------------------------------------- |
+| `actor`                                                              | *Optional[str]*                                                      | :heavy_minus_sign:                                                   | The actor (USER or AI) of the interaction                            |
+| `created_at`                                                         | *Optional[str]*                                                      | :heavy_minus_sign:                                                   | The timestamp when the interaction was created                       |
+| `dw_data`                                                            | [Optional[components.DwData]](../../models/components/dwdata.md)     | :heavy_minus_sign:                                                   | The data related to the data warehouse integration                   |
+| `id`                                                                 | *Optional[int]*                                                      | :heavy_minus_sign:                                                   | The unique identifier of the interaction                             |
+| `message`                                                            | *Optional[str]*                                                      | :heavy_minus_sign:                                                   | The message content of the interaction                               |
+| `metadata`                                                           | [Optional[components.Metadata]](../../models/components/metadata.md) | :heavy_minus_sign:                                                   | The metadata associated with the interaction                         |
+| `model`                                                              | *Optional[str]*                                                      | :heavy_minus_sign:                                                   | The name of the model used for the interaction                       |
+| `reference`                                                          | List[[components.Reference](../../models/components/reference.md)]   | :heavy_minus_sign:                                                   | The list of references associated with the interaction               |
+| `thread_id`                                                          | *Optional[str]*                                                      | :heavy_minus_sign:                                                   | The ID of the chat thread associated with the interaction            |
+| `timestamp`                                                          | *Optional[str]*                                                      | :heavy_minus_sign:                                                   | The timestamp when the interaction occurred                          |
+| `user_credits`                                                       | *Optional[int]*                                                      | :heavy_minus_sign:                                                   | The number of credits used by the user for the interaction           |

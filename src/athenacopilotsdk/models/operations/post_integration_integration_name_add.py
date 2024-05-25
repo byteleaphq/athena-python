@@ -12,7 +12,9 @@ from typing import Dict, List, Optional
 @dataclasses.dataclass
 class PostIntegrationIntegrationNameAddRequestBody:
     brain_id: Optional[str] = dataclasses.field(default=None, metadata={'dataclasses_json': { 'letter_case': utils.get_field_name('brain_id'), 'exclude': lambda f: f is None }})
+    r"""ID of the brain to add pages to"""
     page_ids: Optional[List[str]] = dataclasses.field(default=None, metadata={'dataclasses_json': { 'letter_case': utils.get_field_name('page_ids'), 'exclude': lambda f: f is None }})
+    r"""Array of page IDs to add to the brain"""
     
 
 
@@ -26,9 +28,12 @@ class PostIntegrationIntegrationNameAddRequest:
 
 
 
+@dataclass_json(undefined=Undefined.EXCLUDE)
 @dataclasses.dataclass
 class PostIntegrationIntegrationNameAddResponseBody:
     r"""OK"""
+    message: Optional[str] = dataclasses.field(default=None, metadata={'dataclasses_json': { 'letter_case': utils.get_field_name('message'), 'exclude': lambda f: f is None }})
+    r"""Message indicating the pages are being added to the brain"""
     
 
 
