@@ -3,35 +3,30 @@
 from __future__ import annotations
 import dataclasses
 from ...models.components import httpmetadata as components_httpmetadata
-from athenacopilotsdk import utils
 from dataclasses_json import Undefined, dataclass_json
-from typing import Dict, List, Optional
+from typing import Optional
 
 
 @dataclasses.dataclass
-class GetIntegrationIntegrationNameConnectRequest:
+class PostIntegrationIntegrationNameDisconnectRequest:
     integration_name: str = dataclasses.field(metadata={'path_param': { 'field_name': 'integration_name', 'style': 'simple', 'explode': False }})
     r"""Currently supported integrations are \\"notion\\" and \\"confluence\\". More integrations will be added in the future."""
     
 
 
 
-@dataclass_json(undefined=Undefined.EXCLUDE)
 @dataclasses.dataclass
-class GetIntegrationIntegrationNameConnectResponseBody:
-    r"""OK"""
-    url: Optional[str] = dataclasses.field(default=None, metadata={'dataclasses_json': { 'letter_case': utils.get_field_name('url'), 'exclude': lambda f: f is None }})
-    r"""URL to connect to the integration"""
+class PostIntegrationIntegrationNameDisconnectResponseBody:
+    r"""Empty object"""
     
 
 
 
 @dataclass_json(undefined=Undefined.EXCLUDE)
 @dataclasses.dataclass
-class GetIntegrationIntegrationNameConnectResponse:
+class PostIntegrationIntegrationNameDisconnectResponse:
     http_meta: components_httpmetadata.HTTPMetadata = dataclasses.field(metadata={'dataclasses_json': { 'exclude': lambda f: True }})
-    headers: Dict[str, List[str]] = dataclasses.field()
-    object: Optional[GetIntegrationIntegrationNameConnectResponseBody] = dataclasses.field(default=None)
-    r"""OK"""
+    object: Optional[PostIntegrationIntegrationNameDisconnectResponseBody] = dataclasses.field(default=None)
+    r"""Successful response"""
     
 

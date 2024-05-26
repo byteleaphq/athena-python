@@ -2,16 +2,16 @@ speakeasyVersion: 1.296.1
 sources:
     athenacopilot:
         sourceNamespace: athenacopilot
-        sourceRevisionDigest: sha256:7d80a8493b0272828ea06c644f315821f7a3994c419209f5a6e456f1d3c977ba
-        sourceBlobDigest: sha256:0175c9bfda02b1cd2e6823e96ed2032752f51accf9a6e5bbee3e52dfd5fc9cba
+        sourceRevisionDigest: sha256:cee47c12c9061c1a7037fc9e22684e7da288b9305ad9fcd643c8e98b37ac2936
+        sourceBlobDigest: sha256:a18091d34cfb34cc7ebdcdac5456fa7d2c7e151c1ace04712c5fa31fdfa606c2
         tags:
             - latest
 targets:
     my-first-target:
         source: athenacopilot
         sourceNamespace: athenacopilot
-        sourceRevisionDigest: sha256:7d80a8493b0272828ea06c644f315821f7a3994c419209f5a6e456f1d3c977ba
-        sourceBlobDigest: sha256:0175c9bfda02b1cd2e6823e96ed2032752f51accf9a6e5bbee3e52dfd5fc9cba
+        sourceRevisionDigest: sha256:cee47c12c9061c1a7037fc9e22684e7da288b9305ad9fcd643c8e98b37ac2936
+        sourceBlobDigest: sha256:a18091d34cfb34cc7ebdcdac5456fa7d2c7e151c1ace04712c5fa31fdfa606c2
         outLocation: /Users/work/Desktop/sdk/athena-copilot-sdk-python
 workflow:
     workflowVersion: 1.0.0

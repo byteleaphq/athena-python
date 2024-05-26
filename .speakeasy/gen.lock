@@ -1,12 +1,12 @@
 lockVersion: 2.0.0
 id: 88029c87-fb19-4748-a926-76e977e7e0ac
 management:
-  docChecksum: 8abce4bf0435061baee4ff5352c3c3d1
+  docChecksum: 0a0c0617d4c08977066965c09568a049
   docVersion: 1.0.0
   speakeasyVersion: 1.296.1
   generationVersion: 2.338.1
-  releaseVersion: 0.2.0
-  configChecksum: 644d519310753c50a46a05c44cd211b0
+  releaseVersion: 0.2.1
+  configChecksum: f70a88d41309c773133d5cc6bf37606b
 features:
   python:
     additionalDependencies: 0.1.0
@@ -64,8 +64,8 @@ generatedFiles:
   - src/athenacopilotsdk/models/operations/post_chatbot_update.py
   - src/athenacopilotsdk/models/operations/post_chatbot_delete.py
   - src/athenacopilotsdk/models/operations/post_chatbot_reset.py
-  - src/athenacopilotsdk/models/operations/get_integration_integration_name_connect.py
-  - src/athenacopilotsdk/models/operations/get_integration_integration_name_disconnect.py
+  - src/athenacopilotsdk/models/operations/post_integration_integration_name_connect_.py
+  - src/athenacopilotsdk/models/operations/post_integration_integration_name_disconnect_.py
   - src/athenacopilotsdk/models/operations/get_integration_integration_name_list.py
   - src/athenacopilotsdk/models/operations/post_integration_integration_name_add.py
   - src/athenacopilotsdk/models/operations/get_organisation_.py
@@ -147,12 +147,12 @@ generatedFiles:
   - docs/models/operations/postchatbotdeleteresponse.md
   - docs/models/operations/postchatbotresetrequest.md
   - docs/models/operations/postchatbotresetresponse.md
-  - docs/models/operations/getintegrationintegrationnameconnectrequest.md
-  - docs/models/operations/getintegrationintegrationnameconnectresponsebody.md
-  - docs/models/operations/getintegrationintegrationnameconnectresponse.md
-  - docs/models/operations/getintegrationintegrationnamedisconnectrequest.md
-  - docs/models/operations/getintegrationintegrationnamedisconnectresponsebody.md
-  - docs/models/operations/getintegrationintegrationnamedisconnectresponse.md
+  - docs/models/operations/postintegrationintegrationnameconnectrequest.md
+  - docs/models/operations/postintegrationintegrationnameconnectresponsebody.md
+  - docs/models/operations/postintegrationintegrationnameconnectresponse.md
+  - docs/models/operations/postintegrationintegrationnamedisconnectrequest.md
+  - docs/models/operations/postintegrationintegrationnamedisconnectresponsebody.md
+  - docs/models/operations/postintegrationintegrationnamedisconnectresponse.md
   - docs/models/operations/getintegrationintegrationnamelistrequest.md
   - docs/models/operations/content.md
   - docs/models/operations/responsebody.md

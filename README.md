@@ -101,8 +101,8 @@ if res.brain is not None:
 
 ### [integration](https://github.com/byteleaphq/athena-python/blob/main/docs/sdks/integration/README.md)
 
-- [get_integration_integration_name_connect](https://github.com/byteleaphq/athena-python/blob/main/docs/sdks/integration/README.md#get_integration_integration_name_connect) - Connect
-- [get_integration_integration_name_disconnect](https://github.com/byteleaphq/athena-python/blob/main/docs/sdks/integration/README.md#get_integration_integration_name_disconnect) - Disconnect
+- [post*integration_integration_name_connect*](https://github.com/byteleaphq/athena-python/blob/main/docs/sdks/integration/README.md#post_integration_integration_name_connect_) - Connect
+- [post*integration_integration_name_disconnect*](https://github.com/byteleaphq/athena-python/blob/main/docs/sdks/integration/README.md#post_integration_integration_name_disconnect_) - Disconnect
 - [get_integration_integration_name_list](https://github.com/byteleaphq/athena-python/blob/main/docs/sdks/integration/README.md#get_integration_integration_name_list) - List
 - [post_integration_integration_name_add](https://github.com/byteleaphq/athena-python/blob/main/docs/sdks/integration/README.md#post_integration_integration_name_add) - Add To Brain
 

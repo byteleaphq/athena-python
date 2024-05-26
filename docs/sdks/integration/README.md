@@ -3,12 +3,12 @@
 
 ### Available Operations
 
-* [get_integration_integration_name_connect](#get_integration_integration_name_connect) - Connect
-* [get_integration_integration_name_disconnect](#get_integration_integration_name_disconnect) - Disconnect
+* [post_integration_integration_name_connect_](#post_integration_integration_name_connect_) - Connect
+* [post_integration_integration_name_disconnect_](#post_integration_integration_name_disconnect_) - Disconnect
 * [get_integration_integration_name_list](#get_integration_integration_name_list) - List
 * [post_integration_integration_name_add](#post_integration_integration_name_add) - Add To Brain
 
-## get_integration_integration_name_connect
+## post_integration_integration_name_connect_
 
 Connect
 
@@ -26,7 +26,7 @@ s = athenacopilotsdk.AthenaCopilotSDK(
 )
 
 
-res = s.integration.get_integration_integration_name_connect(integration_name='notion')
+res = s.integration.post_integration_integration_name_connect_(integration_name='notion')
 
 if res.object is not None:
     # handle response
@@ -43,14 +43,14 @@ if res.object is not None:
 
 ### Response
 
-**[operations.GetIntegrationIntegrationNameConnectResponse](../../models/operations/getintegrationintegrationnameconnectresponse.md)**
+**[operations.PostIntegrationIntegrationNameConnectResponse](../../models/operations/postintegrationintegrationnameconnectresponse.md)**
 ### Errors
 
 | Error Object    | Status Code     | Content Type    |
 | --------------- | --------------- | --------------- |
 | errors.SDKError | 4xx-5xx         | */*             |
 
-## get_integration_integration_name_disconnect
+## post_integration_integration_name_disconnect_
 
 Disconnect
 
@@ -68,7 +68,7 @@ s = athenacopilotsdk.AthenaCopilotSDK(
 )
 
 
-res = s.integration.get_integration_integration_name_disconnect(integration_name='notion')
+res = s.integration.post_integration_integration_name_disconnect_(integration_name='notion')
 
 if res.object is not None:
     # handle response
@@ -85,7 +85,7 @@ if res.object is not None:
 
 ### Response
 
-**[operations.GetIntegrationIntegrationNameDisconnectResponse](../../models/operations/getintegrationintegrationnamedisconnectresponse.md)**
+**[operations.PostIntegrationIntegrationNameDisconnectResponse](../../models/operations/postintegrationintegrationnamedisconnectresponse.md)**
 ### Errors
 
 | Error Object    | Status Code     | Content Type    |

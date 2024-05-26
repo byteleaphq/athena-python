@@ -15,16 +15,16 @@ class Integration:
         
     
     
-    def get_integration_integration_name_connect(self, integration_name: str) -> operations.GetIntegrationIntegrationNameConnectResponse:
+    def post_integration_integration_name_connect_(self, integration_name: str) -> operations.PostIntegrationIntegrationNameConnectResponse:
         r"""Connect"""
-        hook_ctx = HookContext(operation_id='get_/integration/{integration_name}/connect', oauth2_scopes=[], security_source=self.sdk_configuration.security)
-        request = operations.GetIntegrationIntegrationNameConnectRequest(
+        hook_ctx = HookContext(operation_id='post_/integration/{integration_name}/connect/', oauth2_scopes=[], security_source=self.sdk_configuration.security)
+        request = operations.PostIntegrationIntegrationNameConnectRequest(
             integration_name=integration_name,
         )
         
         base_url = utils.template_url(*self.sdk_configuration.get_server_details())
         
-        url = utils.generate_url(base_url, '/integration/{integration_name}/connect', request)
+        url = utils.generate_url(base_url, '/integration/{integration_name}/connect/', request)
         
         if callable(self.sdk_configuration.security):
             headers, query_params = utils.get_security(self.sdk_configuration.security())
@@ -36,7 +36,7 @@ class Integration:
         client = self.sdk_configuration.client
         
         try:
-            req = client.prepare_request(requests_http.Request('GET', url, params=query_params, headers=headers))
+            req = client.prepare_request(requests_http.Request('POST', url, params=query_params, headers=headers))
             req = self.sdk_configuration.get_hooks().before_request(BeforeRequestContext(hook_ctx), req)
             http_res = client.send(req)
         except Exception as e:
@@ -55,14 +55,14 @@ class Integration:
             
         
         
-        res = operations.GetIntegrationIntegrationNameConnectResponse(http_meta=components.HTTPMetadata(request=req, response=http_res), headers=None)
+        res = operations.PostIntegrationIntegrationNameConnectResponse(http_meta=components.HTTPMetadata(request=req, response=http_res), headers=None)
         
         if http_res.status_code == 200:
             res.headers = http_res.headers
             
             # pylint: disable=no-else-return
             if utils.match_content_type(http_res.headers.get('Content-Type') or '', 'application/json'):                
-                out = utils.unmarshal_json(http_res.text, Optional[operations.GetIntegrationIntegrationNameConnectResponseBody])
+                out = utils.unmarshal_json(http_res.text, Optional[operations.PostIntegrationIntegrationNameConnectResponseBody])
                 res.object = out
             else:
                 content_type = http_res.headers.get('Content-Type')
@@ -76,16 +76,16 @@ class Integration:
 
     
     
-    def get_integration_integration_name_disconnect(self, integration_name: str) -> operations.GetIntegrationIntegrationNameDisconnectResponse:
+    def post_integration_integration_name_disconnect_(self, integration_name: str) -> operations.PostIntegrationIntegrationNameDisconnectResponse:
         r"""Disconnect"""
-        hook_ctx = HookContext(operation_id='get_/integration/{integration_name}/disconnect', oauth2_scopes=[], security_source=self.sdk_configuration.security)
-        request = operations.GetIntegrationIntegrationNameDisconnectRequest(
+        hook_ctx = HookContext(operation_id='post_/integration/{integration_name}/disconnect/', oauth2_scopes=[], security_source=self.sdk_configuration.security)
+        request = operations.PostIntegrationIntegrationNameDisconnectRequest(
             integration_name=integration_name,
         )
         
         base_url = utils.template_url(*self.sdk_configuration.get_server_details())
         
-        url = utils.generate_url(base_url, '/integration/{integration_name}/disconnect', request)
+        url = utils.generate_url(base_url, '/integration/{integration_name}/disconnect/', request)
         
         if callable(self.sdk_configuration.security):
             headers, query_params = utils.get_security(self.sdk_configuration.security())
@@ -97,7 +97,7 @@ class Integration:
         client = self.sdk_configuration.client
         
         try:
-            req = client.prepare_request(requests_http.Request('GET', url, params=query_params, headers=headers))
+            req = client.prepare_request(requests_http.Request('POST', url, params=query_params, headers=headers))
             req = self.sdk_configuration.get_hooks().before_request(BeforeRequestContext(hook_ctx), req)
             http_res = client.send(req)
         except Exception as e:
@@ -116,12 +116,12 @@ class Integration:
             
         
         
-        res = operations.GetIntegrationIntegrationNameDisconnectResponse(http_meta=components.HTTPMetadata(request=req, response=http_res))
+        res = operations.PostIntegrationIntegrationNameDisconnectResponse(http_meta=components.HTTPMetadata(request=req, response=http_res))
         
         if http_res.status_code == 200:
             # pylint: disable=no-else-return
             if utils.match_content_type(http_res.headers.get('Content-Type') or '', 'application/json'):                
-                out = utils.unmarshal_json(http_res.text, Optional[operations.GetIntegrationIntegrationNameDisconnectResponseBody])
+                out = utils.unmarshal_json(http_res.text, Optional[operations.PostIntegrationIntegrationNameDisconnectResponseBody])
                 res.object = out
             else:
                 content_type = http_res.headers.get('Content-Type')
