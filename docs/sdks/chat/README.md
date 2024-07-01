@@ -3,15 +3,16 @@
 
 ### Available Operations
 
-* [post_chat_](#post_chat_) - Create New Chat
-* [get_chat_](#get_chat_) - List Chats
-* [get_chat_chat_id_](#get_chat_chat_id_) - Get Chat
-* [put_chat_chat_id_](#put_chat_chat_id_) - Update Chat
-* [delete_chat_chat_id_](#delete_chat_chat_id_) - Delete Chat
-* [post_chat_get_response](#post_chat_get_response) - Get Response
-* [post_chat_list_interactions](#post_chat_list_interactions) - List Interactions
+* [create_new_chat](#create_new_chat) - Create New Chat
+* [list_chats](#list_chats) - List Chats
+* [get_chat_by_id](#get_chat_by_id) - Get Chat
+* [update_chat](#update_chat) - Update Chat
+* [delete_chat](#delete_chat) - Delete Chat
+* [create_new_chat_with_msg](#create_new_chat_with_msg) - Create New Chat With Message
+* [get_response](#get_response) - Get Response
+* [list_interactions](#list_interactions) - List Interactions
 
-## post_chat_
+## create_new_chat
 
 integration - defaults to files (superpowered). supported values - files | data-warehouse
 
@@ -29,13 +30,13 @@ s = athenacopilotsdk.AthenaCopilotSDK(
 )
 
 
-res = s.chat.post_chat_(request=operations.PostChatRequestBody(
+res = s.chat.create_new_chat(request=operations.CreateNewChatRequestBody(
     brain_id='{{brain_id}}',
     name='Test_chat2',
     integration=operations.Integration.FILES,
 ))
 
-if res.chat is not None:
+if res.chats is not None:
     # handle response
     pass
 
@@ -43,21 +44,21 @@ if res.chat is not None:
 
 ### Parameters
 
-| Parameter                                                                        | Type                                                                             | Required                                                                         | Description                                                                      |
-| -------------------------------------------------------------------------------- | -------------------------------------------------------------------------------- | -------------------------------------------------------------------------------- | -------------------------------------------------------------------------------- |
-| `request`                                                                        | [operations.PostChatRequestBody](../../models/operations/postchatrequestbody.md) | :heavy_check_mark:                                                               | The request object to use for the request.                                       |
+| Parameter                                                                                  | Type                                                                                       | Required                                                                                   | Description                                                                                |
+| ------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------ |
+| `request`                                                                                  | [operations.CreateNewChatRequestBody](../../models/operations/createnewchatrequestbody.md) | :heavy_check_mark:                                                                         | The request object to use for the request.                                                 |
 
 
 ### Response
 
-**[operations.PostChatResponse](../../models/operations/postchatresponse.md)**
+**[operations.CreateNewChatResponse](../../models/operations/createnewchatresponse.md)**
 ### Errors
 
 | Error Object    | Status Code     | Content Type    |
 | --------------- | --------------- | --------------- |
 | errors.SDKError | 4xx-5xx         | */*             |
 
-## get_chat_
+## list_chats
 
 List Chats
 
@@ -75,7 +76,7 @@ s = athenacopilotsdk.AthenaCopilotSDK(
 )
 
 
-res = s.chat.get_chat_()
+res = s.chat.list_chats()
 
 if res.chats is not None:
     # handle response
@@ -86,14 +87,14 @@ if res.chats is not None:
 
 ### Response
 
-**[operations.GetChatResponse](../../models/operations/getchatresponse.md)**
+**[operations.ListChatsResponse](../../models/operations/listchatsresponse.md)**
 ### Errors
 
 | Error Object    | Status Code     | Content Type    |
 | --------------- | --------------- | --------------- |
 | errors.SDKError | 4xx-5xx         | */*             |
 
-## get_chat_chat_id_
+## get_chat_by_id
 
 Get Chat
 
@@ -111,7 +112,7 @@ s = athenacopilotsdk.AthenaCopilotSDK(
 )
 
 
-res = s.chat.get_chat_chat_id_(chat_id='{{chat_id}}')
+res = s.chat.get_chat_by_id(chat_id='{{chat_id}}')
 
 if res.chat is not None:
     # handle response
@@ -128,14 +129,14 @@ if res.chat is not None:
 
 ### Response
 
-**[operations.GetChatChatIDResponse](../../models/operations/getchatchatidresponse.md)**
+**[operations.GetChatByIDResponse](../../models/operations/getchatbyidresponse.md)**
 ### Errors
 
 | Error Object    | Status Code     | Content Type    |
 | --------------- | --------------- | --------------- |
 | errors.SDKError | 4xx-5xx         | */*             |
 
-## put_chat_chat_id_
+## update_chat
 
 Update Chat
 
@@ -153,7 +154,7 @@ s = athenacopilotsdk.AthenaCopilotSDK(
 )
 
 
-res = s.chat.put_chat_chat_id_(chat_id='{{chat_id}}', request_body=operations.PutChatChatIDRequestBody(
+res = s.chat.update_chat(chat_id='{{chat_id}}', request_body=operations.UpdateChatRequestBody(
     temperature=None,
     name='Test_chat2',
     system_message='test system message',
@@ -170,22 +171,22 @@ if res.chats is not None:
 
 ### Parameters
 
-| Parameter                                                                                            | Type                                                                                                 | Required                                                                                             | Description                                                                                          | Example                                                                                              |
-| ---------------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------- |
-| `chat_id`                                                                                            | *str*                                                                                                | :heavy_check_mark:                                                                                   | N/A                                                                                                  | {{chat_id}}                                                                                          |
-| `request_body`                                                                                       | [Optional[operations.PutChatChatIDRequestBody]](../../models/operations/putchatchatidrequestbody.md) | :heavy_minus_sign:                                                                                   | N/A                                                                                                  | {<br/>"temperature": null,<br/>"system_message": "test system message"<br/>}                         |
+| Parameter                                                                                      | Type                                                                                           | Required                                                                                       | Description                                                                                    | Example                                                                                        |
+| ---------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------- |
+| `chat_id`                                                                                      | *str*                                                                                          | :heavy_check_mark:                                                                             | N/A                                                                                            | {{chat_id}}                                                                                    |
+| `request_body`                                                                                 | [Optional[operations.UpdateChatRequestBody]](../../models/operations/updatechatrequestbody.md) | :heavy_minus_sign:                                                                             | N/A                                                                                            | {<br/>"temperature": null,<br/>"system_message": "test system message"<br/>}                   |
 
 
 ### Response
 
-**[operations.PutChatChatIDResponse](../../models/operations/putchatchatidresponse.md)**
+**[operations.UpdateChatResponse](../../models/operations/updatechatresponse.md)**
 ### Errors
 
 | Error Object    | Status Code     | Content Type    |
 | --------------- | --------------- | --------------- |
 | errors.SDKError | 4xx-5xx         | */*             |
 
-## delete_chat_chat_id_
+## delete_chat
 
 Delete Chat
 
@@ -203,9 +204,9 @@ s = athenacopilotsdk.AthenaCopilotSDK(
 )
 
 
-res = s.chat.delete_chat_chat_id_(chat_id='8474f310-a2a9-4cf8-b16f-8d01a5a6b5fa')
+res = s.chat.delete_chat(chat_id='8474f310-a2a9-4cf8-b16f-8d01a5a6b5fa')
 
-if res.delete_response is not None:
+if res.chats is not None:
     # handle response
     pass
 
@@ -220,14 +221,62 @@ if res.delete_response is not None:
 
 ### Response
 
-**[operations.DeleteChatChatIDResponse](../../models/operations/deletechatchatidresponse.md)**
+**[operations.DeleteChatResponse](../../models/operations/deletechatresponse.md)**
 ### Errors
 
 | Error Object    | Status Code     | Content Type    |
 | --------------- | --------------- | --------------- |
 | errors.SDKError | 4xx-5xx         | */*             |
 
-## post_chat_get_response
+## create_new_chat_with_msg
+
+Create a new chat with the specified brain and message.
+
+### Example Usage
+
+```python
+import athenacopilotsdk
+from athenacopilotsdk.models import components, operations
+
+s = athenacopilotsdk.AthenaCopilotSDK(
+    security=components.Security(
+        username="<YOUR_USERNAME_HERE>",
+        password="<YOUR_PASSWORD_HERE>",
+    ),
+)
+
+
+res = s.chat.create_new_chat_with_msg(request=operations.CreateNewChatWithMsgRequestBody(
+    brain_ids=[
+        '2ad136c5-d2a2-4bbc-bc3d-974f9f88e86d',
+    ],
+    name='Slack Chat - 2024-06-26T12:34:56.789Z',
+    message='Hello, how can I assist you today?',
+))
+
+if res.chat_interactions is not None:
+    # handle response
+    pass
+
+```
+
+### Parameters
+
+| Parameter                                                                                                | Type                                                                                                     | Required                                                                                                 | Description                                                                                              |
+| -------------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------------- |
+| `request`                                                                                                | [operations.CreateNewChatWithMsgRequestBody](../../models/operations/createnewchatwithmsgrequestbody.md) | :heavy_check_mark:                                                                                       | The request object to use for the request.                                                               |
+
+
+### Response
+
+**[operations.CreateNewChatWithMsgResponse](../../models/operations/createnewchatwithmsgresponse.md)**
+### Errors
+
+| Error Object    | Status Code     | Content Type    |
+| --------------- | --------------- | --------------- |
+| errors.SDKError | 4xx-5xx         | */*             |
+
+## get_response
 
 Get Response
 
@@ -245,12 +294,12 @@ s = athenacopilotsdk.AthenaCopilotSDK(
 )
 
 
-res = s.chat.post_chat_get_response(request=operations.PostChatGetResponseRequestBody(
+res = s.chat.get_response(request=operations.GetResponseRequestBody(
     chat_thread_id='d504386d-6cba-4e38-96f0-aa16b83e1cd8',
     text='hi',
 ))
 
-if res.chat_interaction is not None:
+if res.chat_interactions is not None:
     # handle response
     pass
 
@@ -258,21 +307,21 @@ if res.chat_interaction is not None:
 
 ### Parameters
 
-| Parameter                                                                                              | Type                                                                                                   | Required                                                                                               | Description                                                                                            |
-| ------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------ |
-| `request`                                                                                              | [operations.PostChatGetResponseRequestBody](../../models/operations/postchatgetresponserequestbody.md) | :heavy_check_mark:                                                                                     | The request object to use for the request.                                                             |
+| Parameter                                                                              | Type                                                                                   | Required                                                                               | Description                                                                            |
+| -------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------- |
+| `request`                                                                              | [operations.GetResponseRequestBody](../../models/operations/getresponserequestbody.md) | :heavy_check_mark:                                                                     | The request object to use for the request.                                             |
 
 
 ### Response
 
-**[operations.PostChatGetResponseResponse](../../models/operations/postchatgetresponseresponse.md)**
+**[operations.GetResponseResponse](../../models/operations/getresponseresponse.md)**
 ### Errors
 
 | Error Object    | Status Code     | Content Type    |
 | --------------- | --------------- | --------------- |
 | errors.SDKError | 4xx-5xx         | */*             |
 
-## post_chat_list_interactions
+## list_interactions
 
 List Interactions
 
@@ -290,7 +339,7 @@ s = athenacopilotsdk.AthenaCopilotSDK(
 )
 
 
-res = s.chat.post_chat_list_interactions(request=operations.PostChatListInteractionsRequestBody(
+res = s.chat.list_interactions(request=operations.ListInteractionsRequestBody(
     chat_thread_id='d504386d-6cba-4e38-96f0-aa16b83e1cd8',
 ))
 
@@ -302,14 +351,14 @@ if res.chat_interactions is not None:
 
 ### Parameters
 
-| Parameter                                                                                                        | Type                                                                                                             | Required                                                                                                         | Description                                                                                                      |
-| ---------------------------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------------------- |
-| `request`                                                                                                        | [operations.PostChatListInteractionsRequestBody](../../models/operations/postchatlistinteractionsrequestbody.md) | :heavy_check_mark:                                                                                               | The request object to use for the request.                                                                       |
+| Parameter                                                                                        | Type                                                                                             | Required                                                                                         | Description                                                                                      |
+| ------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------ |
+| `request`                                                                                        | [operations.ListInteractionsRequestBody](../../models/operations/listinteractionsrequestbody.md) | :heavy_check_mark:                                                                               | The request object to use for the request.                                                       |
 
 
 ### Response
 
-**[operations.PostChatListInteractionsResponse](../../models/operations/postchatlistinteractionsresponse.md)**
+**[operations.ListInteractionsResponse](../../models/operations/listinteractionsresponse.md)**
 ### Errors
 
 | Error Object    | Status Code     | Content Type    |

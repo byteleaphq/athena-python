@@ -3,13 +3,13 @@
 
 ### Available Operations
 
-* [post_brain_](#post_brain_) - Create Brain
-* [get_brain_](#get_brain_) - Get All Brains
-* [put_brain_brain_id_](#put_brain_brain_id_) - Update Brain
-* [get_brain_brain_id_](#get_brain_brain_id_) - Get Brain by ID
-* [delete_brain_brain_id_](#delete_brain_brain_id_) - Delete Brain
+* [create_new_brain](#create_new_brain) - Create Brain
+* [get_all_brains](#get_all_brains) - Get All Brains
+* [update_brain](#update_brain) - Update Brain
+* [get_brain_by_id](#get_brain_by_id) - Get Brain by ID
+* [delete_brain](#delete_brain) - Delete Brain
 
-## post_brain_
+## create_new_brain
 
 Create Brain
 
@@ -27,7 +27,7 @@ s = athenacopilotsdk.AthenaCopilotSDK(
 )
 
 
-res = s.brain.post_brain_(request=operations.PostBrainRequestBody(
+res = s.brain.create_new_brain(request=operations.CreateNewBrainRequestBody(
     name='Test - brain',
 ))
 
@@ -39,23 +39,23 @@ if res.brain is not None:
 
 ### Parameters
 
-| Parameter                                                                          | Type                                                                               | Required                                                                           | Description                                                                        |
-| ---------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------- |
-| `request`                                                                          | [operations.PostBrainRequestBody](../../models/operations/postbrainrequestbody.md) | :heavy_check_mark:                                                                 | The request object to use for the request.                                         |
+| Parameter                                                                                    | Type                                                                                         | Required                                                                                     | Description                                                                                  |
+| -------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------- |
+| `request`                                                                                    | [operations.CreateNewBrainRequestBody](../../models/operations/createnewbrainrequestbody.md) | :heavy_check_mark:                                                                           | The request object to use for the request.                                                   |
 
 
 ### Response
 
-**[operations.PostBrainResponse](../../models/operations/postbrainresponse.md)**
+**[operations.CreateNewBrainResponse](../../models/operations/createnewbrainresponse.md)**
 ### Errors
 
-| Error Object                      | Status Code                       | Content Type                      |
-| --------------------------------- | --------------------------------- | --------------------------------- |
-| errors.PostBrainResponseBody      | 401                               | application/json                  |
-| errors.PostBrainBrainResponseBody | 500                               | application/json                  |
-| errors.SDKError                   | 4xx-5xx                           | */*                               |
+| Error Object                           | Status Code                            | Content Type                           |
+| -------------------------------------- | -------------------------------------- | -------------------------------------- |
+| errors.CreateNewBrainResponseBody      | 401                                    | application/json                       |
+| errors.CreateNewBrainBrainResponseBody | 500                                    | application/json                       |
+| errors.SDKError                        | 4xx-5xx                                | */*                                    |
 
-## get_brain_
+## get_all_brains
 
 Get All Brains
 
@@ -73,7 +73,7 @@ s = athenacopilotsdk.AthenaCopilotSDK(
 )
 
 
-res = s.brain.get_brain_()
+res = s.brain.get_all_brains()
 
 if res.brains is not None:
     # handle response
@@ -84,14 +84,14 @@ if res.brains is not None:
 
 ### Response
 
-**[operations.GetBrainResponse](../../models/operations/getbrainresponse.md)**
+**[operations.GetAllBrainsResponse](../../models/operations/getallbrainsresponse.md)**
 ### Errors
 
 | Error Object    | Status Code     | Content Type    |
 | --------------- | --------------- | --------------- |
 | errors.SDKError | 4xx-5xx         | */*             |
 
-## put_brain_brain_id_
+## update_brain
 
 Update Brain
 
@@ -109,7 +109,7 @@ s = athenacopilotsdk.AthenaCopilotSDK(
 )
 
 
-res = s.brain.put_brain_brain_id_(brain_id='<value>', request_body=operations.PutBrainBrainIDRequestBody(
+res = s.brain.update_brain(brain_id='<value>', request_body=operations.UpdateBrainRequestBody(
     name='Test Updated Brain',
 ))
 
@@ -121,23 +121,23 @@ if res.brain is not None:
 
 ### Parameters
 
-| Parameter                                                                                                | Type                                                                                                     | Required                                                                                                 | Description                                                                                              | Example                                                                                                  |
-| -------------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------------- |
-| `brain_id`                                                                                               | *str*                                                                                                    | :heavy_check_mark:                                                                                       | N/A                                                                                                      |                                                                                                          |
-| `request_body`                                                                                           | [Optional[operations.PutBrainBrainIDRequestBody]](../../models/operations/putbrainbrainidrequestbody.md) | :heavy_minus_sign:                                                                                       | N/A                                                                                                      | {<br/>"name": "Test Updated Brain"<br/>}                                                                 |
+| Parameter                                                                                        | Type                                                                                             | Required                                                                                         | Description                                                                                      | Example                                                                                          |
+| ------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------ |
+| `brain_id`                                                                                       | *str*                                                                                            | :heavy_check_mark:                                                                               | N/A                                                                                              |                                                                                                  |
+| `request_body`                                                                                   | [Optional[operations.UpdateBrainRequestBody]](../../models/operations/updatebrainrequestbody.md) | :heavy_minus_sign:                                                                               | N/A                                                                                              | {<br/>"name": "Test Updated Brain"<br/>}                                                         |
 
 
 ### Response
 
-**[operations.PutBrainBrainIDResponse](../../models/operations/putbrainbrainidresponse.md)**
+**[operations.UpdateBrainResponse](../../models/operations/updatebrainresponse.md)**
 ### Errors
 
-| Error Object                       | Status Code                        | Content Type                       |
-| ---------------------------------- | ---------------------------------- | ---------------------------------- |
-| errors.PutBrainBrainIDResponseBody | 500                                | application/json                   |
-| errors.SDKError                    | 4xx-5xx                            | */*                                |
+| Error Object                   | Status Code                    | Content Type                   |
+| ------------------------------ | ------------------------------ | ------------------------------ |
+| errors.UpdateBrainResponseBody | 500                            | application/json               |
+| errors.SDKError                | 4xx-5xx                        | */*                            |
 
-## get_brain_brain_id_
+## get_brain_by_id
 
 Get Brain by ID
 
@@ -155,7 +155,7 @@ s = athenacopilotsdk.AthenaCopilotSDK(
 )
 
 
-res = s.brain.get_brain_brain_id_(brain_id='{{brain_id}}')
+res = s.brain.get_brain_by_id(brain_id='{{brain_id}}')
 
 if res.brain is not None:
     # handle response
@@ -172,15 +172,15 @@ if res.brain is not None:
 
 ### Response
 
-**[operations.GetBrainBrainIDResponse](../../models/operations/getbrainbrainidresponse.md)**
+**[operations.GetBrainByIDResponse](../../models/operations/getbrainbyidresponse.md)**
 ### Errors
 
-| Error Object                       | Status Code                        | Content Type                       |
-| ---------------------------------- | ---------------------------------- | ---------------------------------- |
-| errors.GetBrainBrainIDResponseBody | 404                                | application/json                   |
-| errors.SDKError                    | 4xx-5xx                            | */*                                |
+| Error Object                    | Status Code                     | Content Type                    |
+| ------------------------------- | ------------------------------- | ------------------------------- |
+| errors.GetBrainByIDResponseBody | 404                             | application/json                |
+| errors.SDKError                 | 4xx-5xx                         | */*                             |
 
-## delete_brain_brain_id_
+## delete_brain
 
 Delete Brain
 
@@ -198,7 +198,7 @@ s = athenacopilotsdk.AthenaCopilotSDK(
 )
 
 
-res = s.brain.delete_brain_brain_id_(brain_id='{{brain_id}}')
+res = s.brain.delete_brain(brain_id='{{brain_id}}')
 
 if res.delete_response is not None:
     # handle response
@@ -215,7 +215,7 @@ if res.delete_response is not None:
 
 ### Response
 
-**[operations.DeleteBrainBrainIDResponse](../../models/operations/deletebrainbrainidresponse.md)**
+**[operations.DeleteBrainResponse](../../models/operations/deletebrainresponse.md)**
 ### Errors
 
 | Error Object    | Status Code     | Content Type    |

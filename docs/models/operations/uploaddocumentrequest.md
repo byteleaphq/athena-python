@@ -1,0 +1,9 @@
+# UploadDocumentRequest
+
+
+## Fields
+
+| Field                                                                                                  | Type                                                                                                   | Required                                                                                               | Description                                                                                            |
+| ------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------ |
+| `brain_id`                                                                                             | *str*                                                                                                  | :heavy_check_mark:                                                                                     | The ID of the knowledge base to which the document belongs                                             |
+| `request_body`                                                                                         | [Optional[operations.UploadDocumentRequestBody]](../../models/operations/uploaddocumentrequestbody.md) | :heavy_minus_sign:                                                                                     | N/A                                                                                                    |

@@ -3,15 +3,15 @@
 
 ## Supported Types
 
-### Document
+### `components.Document`
 
 ```python
-reference: components.Document = /* values here */
+value: components.Document = /* values here */
 ```
 
-### Two
+### `components.Two`
 
 ```python
-reference: components.Two = /* values here */
+value: components.Two = /* values here */
 ```
 

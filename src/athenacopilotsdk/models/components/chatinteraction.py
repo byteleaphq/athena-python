@@ -26,8 +26,6 @@ class Metadata:
 class Two:
     pass
 
-Reference = Union[Document, 'Two']
-
 
 @dataclass_json(undefined=Undefined.EXCLUDE)
 @dataclasses.dataclass
@@ -57,3 +55,5 @@ class ChatInteraction:
     r"""The number of credits used by the user for the interaction"""
     
 
+
+Reference = Union[Document, Two]

@@ -15,9 +15,9 @@ class Brain:
         
     
     
-    def post_brain_(self, request: Optional[operations.PostBrainRequestBody] = None) -> operations.PostBrainResponse:
+    def create_new_brain(self, request: Optional[operations.CreateNewBrainRequestBody] = None) -> operations.CreateNewBrainResponse:
         r"""Create Brain"""
-        hook_ctx = HookContext(operation_id='post_/brain/', oauth2_scopes=[], security_source=self.sdk_configuration.security)
+        hook_ctx = HookContext(operation_id='create_new_brain', oauth2_scopes=[], security_source=self.sdk_configuration.security)
         base_url = utils.template_url(*self.sdk_configuration.get_server_details())
         
         url = base_url + '/brain/'
@@ -27,7 +27,7 @@ class Brain:
         else:
             headers, query_params = utils.get_security(self.sdk_configuration.security)
         
-        req_content_type, data, form = utils.serialize_request_body(request, Optional[operations.PostBrainRequestBody], "request", False, True, 'json')
+        req_content_type, data, form = utils.serialize_request_body(request, Optional[operations.CreateNewBrainRequestBody], "request", False, True, 'json')
         if req_content_type is not None and req_content_type not in ('multipart/form-data', 'multipart/mixed'):
             headers['content-type'] = req_content_type
         headers['Accept'] = 'application/json'
@@ -54,7 +54,7 @@ class Brain:
             
         
         
-        res = operations.PostBrainResponse(http_meta=components.HTTPMetadata(request=req, response=http_res), headers=None)
+        res = operations.CreateNewBrainResponse(http_meta=components.HTTPMetadata(request=req, response=http_res), headers=None)
         
         if http_res.status_code == 200:
             res.headers = http_res.headers
@@ -71,7 +71,18 @@ class Brain:
             
             # pylint: disable=no-else-return
             if utils.match_content_type(http_res.headers.get('Content-Type') or '', 'application/json'):                
-                out = utils.unmarshal_json(http_res.text, errors.PostBrainResponseBody, infer_missing=True)
+                out = utils.unmarshal_json(http_res.text, errors.CreateNewBrainResponseBody, infer_missing=True)
+                out.http_meta = components.HTTPMetadata(request=req, response=http_res)
+                raise out
+            else:
+                content_type = http_res.headers.get('Content-Type')
+                raise errors.SDKError(f'unknown content-type received: {content_type}', http_res.status_code, http_res.text, http_res)
+        elif http_res.status_code == 500:
+            res.headers = http_res.headers
+            
+            # pylint: disable=no-else-return
+            if utils.match_content_type(http_res.headers.get('Content-Type') or '', 'application/json'):                
+                out = utils.unmarshal_json(http_res.text, errors.CreateNewBrainBrainResponseBody, infer_missing=True)
                 out.http_meta = components.HTTPMetadata(request=req, response=http_res)
                 raise out
             else:
@@ -79,17 +90,6 @@ class Brain:
                 raise errors.SDKError(f'unknown content-type received: {content_type}', http_res.status_code, http_res.text, http_res)
         elif http_res.status_code >= 400 and http_res.status_code < 500 or http_res.status_code >= 500 and http_res.status_code < 600:
             raise errors.SDKError('API error occurred', http_res.status_code, http_res.text, http_res)
-        elif http_res.status_code == 500:
-            res.headers = http_res.headers
-            
-            # pylint: disable=no-else-return
-            if utils.match_content_type(http_res.headers.get('Content-Type') or '', 'application/json'):                
-                out = utils.unmarshal_json(http_res.text, errors.PostBrainBrainResponseBody, infer_missing=True)
-                out.http_meta = components.HTTPMetadata(request=req, response=http_res)
-                raise out
-            else:
-                content_type = http_res.headers.get('Content-Type')
-                raise errors.SDKError(f'unknown content-type received: {content_type}', http_res.status_code, http_res.text, http_res)
         else:
             raise errors.SDKError('unknown status code received', http_res.status_code, http_res.text, http_res)
 
@@ -97,9 +97,9 @@ class Brain:
 
     
     
-    def get_brain_(self) -> operations.GetBrainResponse:
+    def get_all_brains(self) -> operations.GetAllBrainsResponse:
         r"""Get All Brains"""
-        hook_ctx = HookContext(operation_id='get_/brain/', oauth2_scopes=[], security_source=self.sdk_configuration.security)
+        hook_ctx = HookContext(operation_id='get_all_brains', oauth2_scopes=[], security_source=self.sdk_configuration.security)
         base_url = utils.template_url(*self.sdk_configuration.get_server_details())
         
         url = base_url + '/brain/'
@@ -133,7 +133,7 @@ class Brain:
             
         
         
-        res = operations.GetBrainResponse(http_meta=components.HTTPMetadata(request=req, response=http_res), headers=None)
+        res = operations.GetAllBrainsResponse(http_meta=components.HTTPMetadata(request=req, response=http_res), headers=None)
         
         if http_res.status_code == 200:
             res.headers = http_res.headers
@@ -154,10 +154,10 @@ class Brain:
 
     
     
-    def put_brain_brain_id_(self, brain_id: str, request_body: Optional[operations.PutBrainBrainIDRequestBody] = None) -> operations.PutBrainBrainIDResponse:
+    def update_brain(self, brain_id: str, request_body: Optional[operations.UpdateBrainRequestBody] = None) -> operations.UpdateBrainResponse:
         r"""Update Brain"""
-        hook_ctx = HookContext(operation_id='put_/brain/{brain_id}', oauth2_scopes=[], security_source=self.sdk_configuration.security)
-        request = operations.PutBrainBrainIDRequest(
+        hook_ctx = HookContext(operation_id='update_brain', oauth2_scopes=[], security_source=self.sdk_configuration.security)
+        request = operations.UpdateBrainRequest(
             brain_id=brain_id,
             request_body=request_body,
         )
@@ -171,7 +171,7 @@ class Brain:
         else:
             headers, query_params = utils.get_security(self.sdk_configuration.security)
         
-        req_content_type, data, form = utils.serialize_request_body(request, operations.PutBrainBrainIDRequest, "request_body", False, True, 'json')
+        req_content_type, data, form = utils.serialize_request_body(request, operations.UpdateBrainRequest, "request_body", False, True, 'json')
         if req_content_type is not None and req_content_type not in ('multipart/form-data', 'multipart/mixed'):
             headers['content-type'] = req_content_type
         headers['Accept'] = 'application/json'
@@ -198,7 +198,7 @@ class Brain:
             
         
         
-        res = operations.PutBrainBrainIDResponse(http_meta=components.HTTPMetadata(request=req, response=http_res), headers=None)
+        res = operations.UpdateBrainResponse(http_meta=components.HTTPMetadata(request=req, response=http_res), headers=None)
         
         if http_res.status_code == 200:
             res.headers = http_res.headers
@@ -210,19 +210,19 @@ class Brain:
             else:
                 content_type = http_res.headers.get('Content-Type')
                 raise errors.SDKError(f'unknown content-type received: {content_type}', http_res.status_code, http_res.text, http_res)
-        elif http_res.status_code >= 400 and http_res.status_code < 500 or http_res.status_code >= 500 and http_res.status_code < 600:
-            raise errors.SDKError('API error occurred', http_res.status_code, http_res.text, http_res)
         elif http_res.status_code == 500:
             res.headers = http_res.headers
             
             # pylint: disable=no-else-return
             if utils.match_content_type(http_res.headers.get('Content-Type') or '', 'application/json'):                
-                out = utils.unmarshal_json(http_res.text, errors.PutBrainBrainIDResponseBody, infer_missing=True)
+                out = utils.unmarshal_json(http_res.text, errors.UpdateBrainResponseBody, infer_missing=True)
                 out.http_meta = components.HTTPMetadata(request=req, response=http_res)
                 raise out
             else:
                 content_type = http_res.headers.get('Content-Type')
                 raise errors.SDKError(f'unknown content-type received: {content_type}', http_res.status_code, http_res.text, http_res)
+        elif http_res.status_code >= 400 and http_res.status_code < 500 or http_res.status_code >= 500 and http_res.status_code < 600:
+            raise errors.SDKError('API error occurred', http_res.status_code, http_res.text, http_res)
         else:
             raise errors.SDKError('unknown status code received', http_res.status_code, http_res.text, http_res)
 
@@ -230,10 +230,10 @@ class Brain:
 
     
     
-    def get_brain_brain_id_(self, brain_id: str) -> operations.GetBrainBrainIDResponse:
+    def get_brain_by_id(self, brain_id: str) -> operations.GetBrainByIDResponse:
         r"""Get Brain by ID"""
-        hook_ctx = HookContext(operation_id='get_/brain/{brain_id}', oauth2_scopes=[], security_source=self.sdk_configuration.security)
-        request = operations.GetBrainBrainIDRequest(
+        hook_ctx = HookContext(operation_id='get_brain_by_id', oauth2_scopes=[], security_source=self.sdk_configuration.security)
+        request = operations.GetBrainByIDRequest(
             brain_id=brain_id,
         )
         
@@ -270,7 +270,7 @@ class Brain:
             
         
         
-        res = operations.GetBrainBrainIDResponse(http_meta=components.HTTPMetadata(request=req, response=http_res), headers=None)
+        res = operations.GetBrainByIDResponse(http_meta=components.HTTPMetadata(request=req, response=http_res), headers=None)
         
         if http_res.status_code == 200:
             res.headers = http_res.headers
@@ -287,7 +287,7 @@ class Brain:
             
             # pylint: disable=no-else-return
             if utils.match_content_type(http_res.headers.get('Content-Type') or '', 'application/json'):                
-                out = utils.unmarshal_json(http_res.text, errors.GetBrainBrainIDResponseBody, infer_missing=True)
+                out = utils.unmarshal_json(http_res.text, errors.GetBrainByIDResponseBody, infer_missing=True)
                 out.http_meta = components.HTTPMetadata(request=req, response=http_res)
                 raise out
             else:
@@ -302,10 +302,10 @@ class Brain:
 
     
     
-    def delete_brain_brain_id_(self, brain_id: str) -> operations.DeleteBrainBrainIDResponse:
+    def delete_brain(self, brain_id: str) -> operations.DeleteBrainResponse:
         r"""Delete Brain"""
-        hook_ctx = HookContext(operation_id='delete_/brain/{brain_id}', oauth2_scopes=[], security_source=self.sdk_configuration.security)
-        request = operations.DeleteBrainBrainIDRequest(
+        hook_ctx = HookContext(operation_id='delete_brain', oauth2_scopes=[], security_source=self.sdk_configuration.security)
+        request = operations.DeleteBrainRequest(
             brain_id=brain_id,
         )
         
@@ -342,7 +342,7 @@ class Brain:
             
         
         
-        res = operations.DeleteBrainBrainIDResponse(http_meta=components.HTTPMetadata(request=req, response=http_res), headers=None)
+        res = operations.DeleteBrainResponse(http_meta=components.HTTPMetadata(request=req, response=http_res), headers=None)
         
         if http_res.status_code == 200:
             res.headers = http_res.headers

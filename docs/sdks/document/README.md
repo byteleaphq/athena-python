@@ -3,15 +3,15 @@
 
 ### Available Operations
 
-* [post_document_brain_id_text](#post_document_brain_id_text) - Create Text Document
-* [post_document_brain_id_url](#post_document_brain_id_url) - Create Document by URL
-* [get_document_brain_id_document_id_download](#get_document_brain_id_document_id_download) - Download
-* [get_document_brain_id_](#get_document_brain_id_) - List Documents
-* [get_document_brain_id_document_id_](#get_document_brain_id_document_id_) - Get Document
-* [delete_document_brain_id_document_id_](#delete_document_brain_id_document_id_) - Delete Document
-* [post_document_brain_id_file](#post_document_brain_id_file) - Upload Document
+* [create_text_document](#create_text_document) - Create Text Document
+* [create_url_document](#create_url_document) - Create Document by URL
+* [download_document](#download_document) - Download
+* [get_all_documents](#get_all_documents) - List Documents
+* [get_document_by_id](#get_document_by_id) - Get Document
+* [delete_document](#delete_document) - Delete Document
+* [upload_document](#upload_document) - Upload Document
 
-## post_document_brain_id_text
+## create_text_document
 
 Create Text Document
 
@@ -29,7 +29,7 @@ s = athenacopilotsdk.AthenaCopilotSDK(
 )
 
 
-res = s.document.post_document_brain_id_text(brain_id='{{brain_id}}', request_body=operations.PostDocumentBrainIDTextRequestBody(
+res = s.document.create_text_document(brain_id='{{brain_id}}', request_body=operations.CreateTextDocumentRequestBody(
     content='What is an operating system? An operating system (OS) is the program that, after being initially loaded into the computer by a boot program, manages all of the other application programs in a computer............',
 ))
 
@@ -44,19 +44,19 @@ if res.document is not None:
 | Parameter                                                                                                                                                                                                                             | Type                                                                                                                                                                                                                                  | Required                                                                                                                                                                                                                              | Description                                                                                                                                                                                                                           | Example                                                                                                                                                                                                                               |
 | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | `brain_id`                                                                                                                                                                                                                            | *str*                                                                                                                                                                                                                                 | :heavy_check_mark:                                                                                                                                                                                                                    | N/A                                                                                                                                                                                                                                   | {{brain_id}}                                                                                                                                                                                                                          |
-| `request_body`                                                                                                                                                                                                                        | [Optional[operations.PostDocumentBrainIDTextRequestBody]](../../models/operations/postdocumentbrainidtextrequestbody.md)                                                                                                              | :heavy_minus_sign:                                                                                                                                                                                                                    | N/A                                                                                                                                                                                                                                   | {<br/>"content": "What is an operating system? An operating system (OS) is the program that, after being initially loaded into the computer by a boot program, manages all of the other application programs in a computer............"<br/>} |
+| `request_body`                                                                                                                                                                                                                        | [Optional[operations.CreateTextDocumentRequestBody]](../../models/operations/createtextdocumentrequestbody.md)                                                                                                                        | :heavy_minus_sign:                                                                                                                                                                                                                    | N/A                                                                                                                                                                                                                                   | {<br/>"content": "What is an operating system? An operating system (OS) is the program that, after being initially loaded into the computer by a boot program, manages all of the other application programs in a computer............"<br/>} |
 
 
 ### Response
 
-**[operations.PostDocumentBrainIDTextResponse](../../models/operations/postdocumentbrainidtextresponse.md)**
+**[operations.CreateTextDocumentResponse](../../models/operations/createtextdocumentresponse.md)**
 ### Errors
 
 | Error Object    | Status Code     | Content Type    |
 | --------------- | --------------- | --------------- |
 | errors.SDKError | 4xx-5xx         | */*             |
 
-## post_document_brain_id_url
+## create_url_document
 
 Create Document by URL
 
@@ -74,7 +74,7 @@ s = athenacopilotsdk.AthenaCopilotSDK(
 )
 
 
-res = s.document.post_document_brain_id_url(brain_id='{{brain_id}}', request_body=operations.PostDocumentBrainIDURLRequestBody(
+res = s.document.create_url_document(brain_id='{{brain_id}}', request_body=operations.CreateURLDocumentRequestBody(
     url='https://en.wikipedia.org/wiki/Artificial_intelligence',
 ))
 
@@ -86,23 +86,23 @@ if res.document is not None:
 
 ### Parameters
 
-| Parameter                                                                                                              | Type                                                                                                                   | Required                                                                                                               | Description                                                                                                            | Example                                                                                                                |
-| ---------------------------------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------------------------- |
-| `brain_id`                                                                                                             | *str*                                                                                                                  | :heavy_check_mark:                                                                                                     | N/A                                                                                                                    | {{brain_id}}                                                                                                           |
-| `request_body`                                                                                                         | [Optional[operations.PostDocumentBrainIDURLRequestBody]](../../models/operations/postdocumentbrainidurlrequestbody.md) | :heavy_minus_sign:                                                                                                     | N/A                                                                                                                    | {<br/>"url": "https://en.wikipedia.org/wiki/Artificial_intelligence"<br/>}                                             |
+| Parameter                                                                                                    | Type                                                                                                         | Required                                                                                                     | Description                                                                                                  | Example                                                                                                      |
+| ------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------ |
+| `brain_id`                                                                                                   | *str*                                                                                                        | :heavy_check_mark:                                                                                           | N/A                                                                                                          | {{brain_id}}                                                                                                 |
+| `request_body`                                                                                               | [Optional[operations.CreateURLDocumentRequestBody]](../../models/operations/createurldocumentrequestbody.md) | :heavy_minus_sign:                                                                                           | N/A                                                                                                          | {<br/>"url": "https://en.wikipedia.org/wiki/Artificial_intelligence"<br/>}                                   |
 
 
 ### Response
 
-**[operations.PostDocumentBrainIDURLResponse](../../models/operations/postdocumentbrainidurlresponse.md)**
+**[operations.CreateURLDocumentResponse](../../models/operations/createurldocumentresponse.md)**
 ### Errors
 
-| Error Object                              | Status Code                               | Content Type                              |
-| ----------------------------------------- | ----------------------------------------- | ----------------------------------------- |
-| errors.PostDocumentBrainIDURLResponseBody | 500                                       | application/json                          |
-| errors.SDKError                           | 4xx-5xx                                   | */*                                       |
+| Error Object                         | Status Code                          | Content Type                         |
+| ------------------------------------ | ------------------------------------ | ------------------------------------ |
+| errors.CreateURLDocumentResponseBody | 500                                  | application/json                     |
+| errors.SDKError                      | 4xx-5xx                              | */*                                  |
 
-## get_document_brain_id_document_id_download
+## download_document
 
 Download
 
@@ -120,7 +120,7 @@ s = athenacopilotsdk.AthenaCopilotSDK(
 )
 
 
-res = s.document.get_document_brain_id_document_id_download(brain_id='{{brain_id}}', document_id='a00f07cb-c04c-4824-9b26-5b7eb5c274ae')
+res = s.document.download_document(brain_id='{{brain_id}}', document_id='a00f07cb-c04c-4824-9b26-5b7eb5c274ae')
 
 if res.object is not None:
     # handle response
@@ -138,14 +138,14 @@ if res.object is not None:
 
 ### Response
 
-**[operations.GetDocumentBrainIDDocumentIDDownloadResponse](../../models/operations/getdocumentbrainiddocumentiddownloadresponse.md)**
+**[operations.DownloadDocumentResponse](../../models/operations/downloaddocumentresponse.md)**
 ### Errors
 
 | Error Object    | Status Code     | Content Type    |
 | --------------- | --------------- | --------------- |
 | errors.SDKError | 4xx-5xx         | */*             |
 
-## get_document_brain_id_
+## get_all_documents
 
 List Documents
 
@@ -163,7 +163,7 @@ s = athenacopilotsdk.AthenaCopilotSDK(
 )
 
 
-res = s.document.get_document_brain_id_(brain_id='{{brain_id}}')
+res = s.document.get_all_documents(brain_id='{{brain_id}}')
 
 if res.documents is not None:
     # handle response
@@ -180,14 +180,14 @@ if res.documents is not None:
 
 ### Response
 
-**[operations.GetDocumentBrainIDResponse](../../models/operations/getdocumentbrainidresponse.md)**
+**[operations.GetAllDocumentsResponse](../../models/operations/getalldocumentsresponse.md)**
 ### Errors
 
 | Error Object    | Status Code     | Content Type    |
 | --------------- | --------------- | --------------- |
 | errors.SDKError | 4xx-5xx         | */*             |
 
-## get_document_brain_id_document_id_
+## get_document_by_id
 
 Get Document
 
@@ -205,7 +205,7 @@ s = athenacopilotsdk.AthenaCopilotSDK(
 )
 
 
-res = s.document.get_document_brain_id_document_id_(brain_id='{{brain_id}}', document_id='020d69cb-197b-47ef-911b-ee45ee260839')
+res = s.document.get_document_by_id(brain_id='{{brain_id}}', document_id='020d69cb-197b-47ef-911b-ee45ee260839')
 
 if res.document is not None:
     # handle response
@@ -223,14 +223,14 @@ if res.document is not None:
 
 ### Response
 
-**[operations.GetDocumentBrainIDDocumentIDResponse](../../models/operations/getdocumentbrainiddocumentidresponse.md)**
+**[operations.GetDocumentByIDResponse](../../models/operations/getdocumentbyidresponse.md)**
 ### Errors
 
 | Error Object    | Status Code     | Content Type    |
 | --------------- | --------------- | --------------- |
 | errors.SDKError | 4xx-5xx         | */*             |
 
-## delete_document_brain_id_document_id_
+## delete_document
 
 Delete Document
 
@@ -248,7 +248,7 @@ s = athenacopilotsdk.AthenaCopilotSDK(
 )
 
 
-res = s.document.delete_document_brain_id_document_id_(brain_id='{{brain_id}}', document_id='5ca417c0-6d74-4752-a9cd-e2813ea67fd6')
+res = s.document.delete_document(brain_id='{{brain_id}}', document_id='5ca417c0-6d74-4752-a9cd-e2813ea67fd6')
 
 if res.delete_response is not None:
     # handle response
@@ -266,14 +266,14 @@ if res.delete_response is not None:
 
 ### Response
 
-**[operations.DeleteDocumentBrainIDDocumentIDResponse](../../models/operations/deletedocumentbrainiddocumentidresponse.md)**
+**[operations.DeleteDocumentResponse](../../models/operations/deletedocumentresponse.md)**
 ### Errors
 
 | Error Object    | Status Code     | Content Type    |
 | --------------- | --------------- | --------------- |
 | errors.SDKError | 4xx-5xx         | */*             |
 
-## post_document_brain_id_file
+## upload_document
 
 Upload Document
 
@@ -291,7 +291,7 @@ s = athenacopilotsdk.AthenaCopilotSDK(
 )
 
 
-res = s.document.post_document_brain_id_file(brain_id='{{brain_id}}', request_body=operations.PostDocumentBrainIDFileRequestBody())
+res = s.document.upload_document(brain_id='<value>', request_body=operations.UploadDocumentRequestBody())
 
 if res.document is not None:
     # handle response
@@ -301,17 +301,19 @@ if res.document is not None:
 
 ### Parameters
 
-| Parameter                                                                                                                | Type                                                                                                                     | Required                                                                                                                 | Description                                                                                                              | Example                                                                                                                  |
-| ------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------ |
-| `brain_id`                                                                                                               | *str*                                                                                                                    | :heavy_check_mark:                                                                                                       | N/A                                                                                                                      | {{brain_id}}                                                                                                             |
-| `request_body`                                                                                                           | [Optional[operations.PostDocumentBrainIDFileRequestBody]](../../models/operations/postdocumentbrainidfilerequestbody.md) | :heavy_minus_sign:                                                                                                       | N/A                                                                                                                      |                                                                                                                          |
+| Parameter                                                                                              | Type                                                                                                   | Required                                                                                               | Description                                                                                            |
+| ------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------ |
+| `brain_id`                                                                                             | *str*                                                                                                  | :heavy_check_mark:                                                                                     | The ID of the knowledge base to which the document belongs                                             |
+| `request_body`                                                                                         | [Optional[operations.UploadDocumentRequestBody]](../../models/operations/uploaddocumentrequestbody.md) | :heavy_minus_sign:                                                                                     | N/A                                                                                                    |
 
 
 ### Response
 
-**[operations.PostDocumentBrainIDFileResponse](../../models/operations/postdocumentbrainidfileresponse.md)**
+**[operations.UploadDocumentResponse](../../models/operations/uploaddocumentresponse.md)**
 ### Errors
 
-| Error Object    | Status Code     | Content Type    |
-| --------------- | --------------- | --------------- |
-| errors.SDKError | 4xx-5xx         | */*             |
+| Error Object                              | Status Code                               | Content Type                              |
+| ----------------------------------------- | ----------------------------------------- | ----------------------------------------- |
+| errors.UploadDocumentResponseBody         | 400                                       | application/json                          |
+| errors.UploadDocumentDocumentResponseBody | 500                                       | application/json                          |
+| errors.SDKError                           | 4xx-5xx                                   | */*                                       |

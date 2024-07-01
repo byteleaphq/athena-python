@@ -15,10 +15,10 @@ class Document:
         
     
     
-    def post_document_brain_id_text(self, brain_id: str, request_body: Optional[operations.PostDocumentBrainIDTextRequestBody] = None) -> operations.PostDocumentBrainIDTextResponse:
+    def create_text_document(self, brain_id: str, request_body: Optional[operations.CreateTextDocumentRequestBody] = None) -> operations.CreateTextDocumentResponse:
         r"""Create Text Document"""
-        hook_ctx = HookContext(operation_id='post_/document/{brain_id}/text', oauth2_scopes=[], security_source=self.sdk_configuration.security)
-        request = operations.PostDocumentBrainIDTextRequest(
+        hook_ctx = HookContext(operation_id='create_text_document', oauth2_scopes=[], security_source=self.sdk_configuration.security)
+        request = operations.CreateTextDocumentRequest(
             brain_id=brain_id,
             request_body=request_body,
         )
@@ -32,7 +32,7 @@ class Document:
         else:
             headers, query_params = utils.get_security(self.sdk_configuration.security)
         
-        req_content_type, data, form = utils.serialize_request_body(request, operations.PostDocumentBrainIDTextRequest, "request_body", False, True, 'json')
+        req_content_type, data, form = utils.serialize_request_body(request, operations.CreateTextDocumentRequest, "request_body", False, True, 'json')
         if req_content_type is not None and req_content_type not in ('multipart/form-data', 'multipart/mixed'):
             headers['content-type'] = req_content_type
         headers['Accept'] = 'application/json'
@@ -59,7 +59,7 @@ class Document:
             
         
         
-        res = operations.PostDocumentBrainIDTextResponse(http_meta=components.HTTPMetadata(request=req, response=http_res), headers=None)
+        res = operations.CreateTextDocumentResponse(http_meta=components.HTTPMetadata(request=req, response=http_res), headers=None)
         
         if http_res.status_code == 200:
             res.headers = http_res.headers
@@ -80,10 +80,10 @@ class Document:
 
     
     
-    def post_document_brain_id_url(self, brain_id: str, request_body: Optional[operations.PostDocumentBrainIDURLRequestBody] = None) -> operations.PostDocumentBrainIDURLResponse:
+    def create_url_document(self, brain_id: str, request_body: Optional[operations.CreateURLDocumentRequestBody] = None) -> operations.CreateURLDocumentResponse:
         r"""Create Document by URL"""
-        hook_ctx = HookContext(operation_id='post_/document/{brain_id}/url', oauth2_scopes=[], security_source=self.sdk_configuration.security)
-        request = operations.PostDocumentBrainIDURLRequest(
+        hook_ctx = HookContext(operation_id='create_url_document', oauth2_scopes=[], security_source=self.sdk_configuration.security)
+        request = operations.CreateURLDocumentRequest(
             brain_id=brain_id,
             request_body=request_body,
         )
@@ -97,7 +97,7 @@ class Document:
         else:
             headers, query_params = utils.get_security(self.sdk_configuration.security)
         
-        req_content_type, data, form = utils.serialize_request_body(request, operations.PostDocumentBrainIDURLRequest, "request_body", False, True, 'json')
+        req_content_type, data, form = utils.serialize_request_body(request, operations.CreateURLDocumentRequest, "request_body", False, True, 'json')
         if req_content_type is not None and req_content_type not in ('multipart/form-data', 'multipart/mixed'):
             headers['content-type'] = req_content_type
         headers['Accept'] = 'application/json'
@@ -124,7 +124,7 @@ class Document:
             
         
         
-        res = operations.PostDocumentBrainIDURLResponse(http_meta=components.HTTPMetadata(request=req, response=http_res), headers=None)
+        res = operations.CreateURLDocumentResponse(http_meta=components.HTTPMetadata(request=req, response=http_res), headers=None)
         
         if http_res.status_code == 200:
             res.headers = http_res.headers
@@ -136,19 +136,19 @@ class Document:
             else:
                 content_type = http_res.headers.get('Content-Type')
                 raise errors.SDKError(f'unknown content-type received: {content_type}', http_res.status_code, http_res.text, http_res)
-        elif http_res.status_code >= 400 and http_res.status_code < 500 or http_res.status_code >= 500 and http_res.status_code < 600:
-            raise errors.SDKError('API error occurred', http_res.status_code, http_res.text, http_res)
         elif http_res.status_code == 500:
             res.headers = http_res.headers
             
             # pylint: disable=no-else-return
             if utils.match_content_type(http_res.headers.get('Content-Type') or '', 'application/json'):                
-                out = utils.unmarshal_json(http_res.text, errors.PostDocumentBrainIDURLResponseBody, infer_missing=True)
+                out = utils.unmarshal_json(http_res.text, errors.CreateURLDocumentResponseBody, infer_missing=True)
                 out.http_meta = components.HTTPMetadata(request=req, response=http_res)
                 raise out
             else:
                 content_type = http_res.headers.get('Content-Type')
                 raise errors.SDKError(f'unknown content-type received: {content_type}', http_res.status_code, http_res.text, http_res)
+        elif http_res.status_code >= 400 and http_res.status_code < 500 or http_res.status_code >= 500 and http_res.status_code < 600:
+            raise errors.SDKError('API error occurred', http_res.status_code, http_res.text, http_res)
         else:
             raise errors.SDKError('unknown status code received', http_res.status_code, http_res.text, http_res)
 
@@ -156,10 +156,10 @@ class Document:
 
     
     
-    def get_document_brain_id_document_id_download(self, brain_id: str, document_id: str) -> operations.GetDocumentBrainIDDocumentIDDownloadResponse:
+    def download_document(self, brain_id: str, document_id: str) -> operations.DownloadDocumentResponse:
         r"""Download"""
-        hook_ctx = HookContext(operation_id='get_/document/{brain_id}/{document_id}/download', oauth2_scopes=[], security_source=self.sdk_configuration.security)
-        request = operations.GetDocumentBrainIDDocumentIDDownloadRequest(
+        hook_ctx = HookContext(operation_id='download_document', oauth2_scopes=[], security_source=self.sdk_configuration.security)
+        request = operations.DownloadDocumentRequest(
             brain_id=brain_id,
             document_id=document_id,
         )
@@ -197,14 +197,14 @@ class Document:
             
         
         
-        res = operations.GetDocumentBrainIDDocumentIDDownloadResponse(http_meta=components.HTTPMetadata(request=req, response=http_res), headers=None)
+        res = operations.DownloadDocumentResponse(http_meta=components.HTTPMetadata(request=req, response=http_res), headers=None)
         
         if http_res.status_code == 200:
             res.headers = http_res.headers
             
             # pylint: disable=no-else-return
             if utils.match_content_type(http_res.headers.get('Content-Type') or '', 'application/json'):                
-                out = utils.unmarshal_json(http_res.text, Optional[operations.GetDocumentBrainIDDocumentIDDownloadResponseBody])
+                out = utils.unmarshal_json(http_res.text, Optional[operations.DownloadDocumentResponseBody])
                 res.object = out
             else:
                 content_type = http_res.headers.get('Content-Type')
@@ -218,10 +218,10 @@ class Document:
 
     
     
-    def get_document_brain_id_(self, brain_id: str) -> operations.GetDocumentBrainIDResponse:
+    def get_all_documents(self, brain_id: str) -> operations.GetAllDocumentsResponse:
         r"""List Documents"""
-        hook_ctx = HookContext(operation_id='get_/document/{brain_id}', oauth2_scopes=[], security_source=self.sdk_configuration.security)
-        request = operations.GetDocumentBrainIDRequest(
+        hook_ctx = HookContext(operation_id='getAllDocuments', oauth2_scopes=[], security_source=self.sdk_configuration.security)
+        request = operations.GetAllDocumentsRequest(
             brain_id=brain_id,
         )
         
@@ -258,7 +258,7 @@ class Document:
             
         
         
-        res = operations.GetDocumentBrainIDResponse(http_meta=components.HTTPMetadata(request=req, response=http_res), headers=None)
+        res = operations.GetAllDocumentsResponse(http_meta=components.HTTPMetadata(request=req, response=http_res), headers=None)
         
         if http_res.status_code == 200:
             res.headers = http_res.headers
@@ -279,10 +279,10 @@ class Document:
 
     
     
-    def get_document_brain_id_document_id_(self, brain_id: str, document_id: str) -> operations.GetDocumentBrainIDDocumentIDResponse:
+    def get_document_by_id(self, brain_id: str, document_id: str) -> operations.GetDocumentByIDResponse:
         r"""Get Document"""
-        hook_ctx = HookContext(operation_id='get_/document/{brain_id}/{document_id}', oauth2_scopes=[], security_source=self.sdk_configuration.security)
-        request = operations.GetDocumentBrainIDDocumentIDRequest(
+        hook_ctx = HookContext(operation_id='get_document_by_id', oauth2_scopes=[], security_source=self.sdk_configuration.security)
+        request = operations.GetDocumentByIDRequest(
             brain_id=brain_id,
             document_id=document_id,
         )
@@ -320,7 +320,7 @@ class Document:
             
         
         
-        res = operations.GetDocumentBrainIDDocumentIDResponse(http_meta=components.HTTPMetadata(request=req, response=http_res), headers=None)
+        res = operations.GetDocumentByIDResponse(http_meta=components.HTTPMetadata(request=req, response=http_res), headers=None)
         
         if http_res.status_code == 200:
             res.headers = http_res.headers
@@ -341,10 +341,10 @@ class Document:
 
     
     
-    def delete_document_brain_id_document_id_(self, brain_id: str, document_id: str) -> operations.DeleteDocumentBrainIDDocumentIDResponse:
+    def delete_document(self, brain_id: str, document_id: str) -> operations.DeleteDocumentResponse:
         r"""Delete Document"""
-        hook_ctx = HookContext(operation_id='delete_/document/{brain_id}/{document_id}', oauth2_scopes=[], security_source=self.sdk_configuration.security)
-        request = operations.DeleteDocumentBrainIDDocumentIDRequest(
+        hook_ctx = HookContext(operation_id='delete_document', oauth2_scopes=[], security_source=self.sdk_configuration.security)
+        request = operations.DeleteDocumentRequest(
             brain_id=brain_id,
             document_id=document_id,
         )
@@ -382,7 +382,7 @@ class Document:
             
         
         
-        res = operations.DeleteDocumentBrainIDDocumentIDResponse(http_meta=components.HTTPMetadata(request=req, response=http_res), headers=None)
+        res = operations.DeleteDocumentResponse(http_meta=components.HTTPMetadata(request=req, response=http_res), headers=None)
         
         if http_res.status_code == 200:
             res.headers = http_res.headers
@@ -403,10 +403,10 @@ class Document:
 
     
     
-    def post_document_brain_id_file(self, brain_id: str, request_body: Optional[operations.PostDocumentBrainIDFileRequestBody] = None) -> operations.PostDocumentBrainIDFileResponse:
+    def upload_document(self, brain_id: str, request_body: Optional[operations.UploadDocumentRequestBody] = None) -> operations.UploadDocumentResponse:
         r"""Upload Document"""
-        hook_ctx = HookContext(operation_id='post_/document/{brain_id}/file', oauth2_scopes=[], security_source=self.sdk_configuration.security)
-        request = operations.PostDocumentBrainIDFileRequest(
+        hook_ctx = HookContext(operation_id='upload_document', oauth2_scopes=[], security_source=self.sdk_configuration.security)
+        request = operations.UploadDocumentRequest(
             brain_id=brain_id,
             request_body=request_body,
         )
@@ -420,7 +420,7 @@ class Document:
         else:
             headers, query_params = utils.get_security(self.sdk_configuration.security)
         
-        req_content_type, data, form = utils.serialize_request_body(request, operations.PostDocumentBrainIDFileRequest, "request_body", False, True, 'multipart')
+        req_content_type, data, form = utils.serialize_request_body(request, operations.UploadDocumentRequest, "request_body", False, True, 'multipart')
         if req_content_type is not None and req_content_type not in ('multipart/form-data', 'multipart/mixed'):
             headers['content-type'] = req_content_type
         headers['Accept'] = 'application/json'
@@ -436,7 +436,7 @@ class Document:
             if e is not None:
                 raise e
 
-        if utils.match_status_codes(['4XX','5XX'], http_res.status_code):
+        if utils.match_status_codes(['400','4XX','500','5XX'], http_res.status_code):
             result, e = self.sdk_configuration.get_hooks().after_error(AfterErrorContext(hook_ctx), http_res, None)
             if e is not None:
                 raise e
@@ -447,15 +447,31 @@ class Document:
             
         
         
-        res = operations.PostDocumentBrainIDFileResponse(http_meta=components.HTTPMetadata(request=req, response=http_res), headers=None)
+        res = operations.UploadDocumentResponse(http_meta=components.HTTPMetadata(request=req, response=http_res))
         
         if http_res.status_code == 200:
-            res.headers = http_res.headers
-            
             # pylint: disable=no-else-return
             if utils.match_content_type(http_res.headers.get('Content-Type') or '', 'application/json'):                
                 out = utils.unmarshal_json(http_res.text, Optional[components.Document])
                 res.document = out
+            else:
+                content_type = http_res.headers.get('Content-Type')
+                raise errors.SDKError(f'unknown content-type received: {content_type}', http_res.status_code, http_res.text, http_res)
+        elif http_res.status_code == 400:
+            # pylint: disable=no-else-return
+            if utils.match_content_type(http_res.headers.get('Content-Type') or '', 'application/json'):                
+                out = utils.unmarshal_json(http_res.text, errors.UploadDocumentResponseBody, infer_missing=True)
+                out.http_meta = components.HTTPMetadata(request=req, response=http_res)
+                raise out
+            else:
+                content_type = http_res.headers.get('Content-Type')
+                raise errors.SDKError(f'unknown content-type received: {content_type}', http_res.status_code, http_res.text, http_res)
+        elif http_res.status_code == 500:
+            # pylint: disable=no-else-return
+            if utils.match_content_type(http_res.headers.get('Content-Type') or '', 'application/json'):                
+                out = utils.unmarshal_json(http_res.text, errors.UploadDocumentDocumentResponseBody, infer_missing=True)
+                out.http_meta = components.HTTPMetadata(request=req, response=http_res)
+                raise out
             else:
                 content_type = http_res.headers.get('Content-Type')
                 raise errors.SDKError(f'unknown content-type received: {content_type}', http_res.status_code, http_res.text, http_res)

@@ -1,17 +1,17 @@
 lockVersion: 2.0.0
 id: 88029c87-fb19-4748-a926-76e977e7e0ac
 management:
-  docChecksum: 0a0c0617d4c08977066965c09568a049
+  docChecksum: 33e958d74219409c3b0222c02d5f3220
   docVersion: 1.0.0
-  speakeasyVersion: 1.296.1
-  generationVersion: 2.338.1
-  releaseVersion: 0.2.1
-  configChecksum: f70a88d41309c773133d5cc6bf37606b
+  speakeasyVersion: 1.324.0
+  generationVersion: 2.356.0
+  releaseVersion: 0.2.2
+  configChecksum: 912b9f0a0bf73855aa310ee57de54ce1
 features:
   python:
     additionalDependencies: 0.1.0
     additionalProperties: 0.1.0
-    core: 4.6.8
+    core: 4.6.13
     flattening: 2.81.1
     globalSecurity: 2.83.5
     globalSecurityCallbacks: 0.1.0
@@ -19,7 +19,7 @@ features:
     nullables: 0.1.0
     responseFormat: 0.1.0
     sdkHooks: 0.1.0
-    unions: 2.82.7
+    unions: 2.82.8
 generatedFiles:
   - src/athenacopilotsdk/sdkconfiguration.py
   - src/athenacopilotsdk/brain.py
@@ -31,31 +31,33 @@ generatedFiles:
   - src/athenacopilotsdk/sdk.py
   - py.typed
   - pylintrc
+  - scripts/publish.sh
   - setup.py
   - src/athenacopilotsdk/__init__.py
   - src/athenacopilotsdk/utils/__init__.py
   - src/athenacopilotsdk/utils/retries.py
   - src/athenacopilotsdk/utils/utils.py
   - src/athenacopilotsdk/models/errors/sdkerror.py
-  - src/athenacopilotsdk/models/operations/post_brain_.py
-  - src/athenacopilotsdk/models/operations/get_brain_.py
-  - src/athenacopilotsdk/models/operations/put_brain_brain_id_.py
-  - src/athenacopilotsdk/models/operations/get_brain_brain_id_.py
-  - src/athenacopilotsdk/models/operations/delete_brain_brain_id_.py
-  - src/athenacopilotsdk/models/operations/post_document_brain_id_text.py
-  - src/athenacopilotsdk/models/operations/post_document_brain_id_url.py
-  - src/athenacopilotsdk/models/operations/get_document_brain_id_document_id_download.py
-  - src/athenacopilotsdk/models/operations/get_document_brain_id_.py
-  - src/athenacopilotsdk/models/operations/get_document_brain_id_document_id_.py
-  - src/athenacopilotsdk/models/operations/delete_document_brain_id_document_id_.py
-  - src/athenacopilotsdk/models/operations/post_document_brain_id_file.py
-  - src/athenacopilotsdk/models/operations/post_chat_.py
-  - src/athenacopilotsdk/models/operations/get_chat_.py
-  - src/athenacopilotsdk/models/operations/get_chat_chat_id_.py
-  - src/athenacopilotsdk/models/operations/put_chat_chat_id_.py
-  - src/athenacopilotsdk/models/operations/delete_chat_chat_id_.py
-  - src/athenacopilotsdk/models/operations/post_chat_get_response.py
-  - src/athenacopilotsdk/models/operations/post_chat_list_interactions.py
+  - src/athenacopilotsdk/models/operations/create_new_brain.py
+  - src/athenacopilotsdk/models/operations/get_all_brains.py
+  - src/athenacopilotsdk/models/operations/update_brain.py
+  - src/athenacopilotsdk/models/operations/get_brain_by_id.py
+  - src/athenacopilotsdk/models/operations/delete_brain.py
+  - src/athenacopilotsdk/models/operations/create_text_document.py
+  - src/athenacopilotsdk/models/operations/create_url_document.py
+  - src/athenacopilotsdk/models/operations/download_document.py
+  - src/athenacopilotsdk/models/operations/getalldocuments.py
+  - src/athenacopilotsdk/models/operations/get_document_by_id.py
+  - src/athenacopilotsdk/models/operations/delete_document.py
+  - src/athenacopilotsdk/models/operations/upload_document.py
+  - src/athenacopilotsdk/models/operations/create_new_chat.py
+  - src/athenacopilotsdk/models/operations/list_chats.py
+  - src/athenacopilotsdk/models/operations/get_chat_by_id.py
+  - src/athenacopilotsdk/models/operations/update_chat.py
+  - src/athenacopilotsdk/models/operations/delete_chat.py
+  - src/athenacopilotsdk/models/operations/create_new_chat_with_msg.py
+  - src/athenacopilotsdk/models/operations/get_response.py
+  - src/athenacopilotsdk/models/operations/list_interactions.py
   - src/athenacopilotsdk/models/operations/post_chatbot_create.py
   - src/athenacopilotsdk/models/operations/get_chatbot_list.py
   - src/athenacopilotsdk/models/operations/post_chatbot_get.py
@@ -79,58 +81,61 @@ generatedFiles:
   - src/athenacopilotsdk/models/components/chatbotanalytics.py
   - src/athenacopilotsdk/models/components/chatbotmessages.py
   - src/athenacopilotsdk/models/components/security.py
-  - src/athenacopilotsdk/models/errors/post_brain_.py
-  - src/athenacopilotsdk/models/errors/put_brain_brain_id_.py
-  - src/athenacopilotsdk/models/errors/get_brain_brain_id_.py
-  - src/athenacopilotsdk/models/errors/post_document_brain_id_url.py
+  - src/athenacopilotsdk/models/errors/create_new_brain.py
+  - src/athenacopilotsdk/models/errors/update_brain.py
+  - src/athenacopilotsdk/models/errors/get_brain_by_id.py
+  - src/athenacopilotsdk/models/errors/create_url_document.py
+  - src/athenacopilotsdk/models/errors/upload_document.py
   - src/athenacopilotsdk/models/__init__.py
   - src/athenacopilotsdk/models/errors/__init__.py
   - src/athenacopilotsdk/models/operations/__init__.py
   - src/athenacopilotsdk/models/components/__init__.py
-  - docs/models/operations/postbrainrequestbody.md
-  - docs/models/operations/postbrainresponse.md
-  - docs/models/operations/getbrainresponse.md
-  - docs/models/operations/putbrainbrainidrequestbody.md
-  - docs/models/operations/putbrainbrainidrequest.md
-  - docs/models/operations/putbrainbrainidresponse.md
-  - docs/models/operations/getbrainbrainidrequest.md
-  - docs/models/operations/getbrainbrainidresponse.md
-  - docs/models/operations/deletebrainbrainidrequest.md
-  - docs/models/operations/deletebrainbrainidresponse.md
-  - docs/models/operations/postdocumentbrainidtextrequestbody.md
-  - docs/models/operations/postdocumentbrainidtextrequest.md
-  - docs/models/operations/postdocumentbrainidtextresponse.md
-  - docs/models/operations/postdocumentbrainidurlrequestbody.md
-  - docs/models/operations/postdocumentbrainidurlrequest.md
-  - docs/models/operations/postdocumentbrainidurlresponse.md
-  - docs/models/operations/getdocumentbrainiddocumentiddownloadrequest.md
-  - docs/models/operations/getdocumentbrainiddocumentiddownloadresponsebody.md
-  - docs/models/operations/getdocumentbrainiddocumentiddownloadresponse.md
-  - docs/models/operations/getdocumentbrainidrequest.md
-  - docs/models/operations/getdocumentbrainidresponse.md
-  - docs/models/operations/getdocumentbrainiddocumentidrequest.md
-  - docs/models/operations/getdocumentbrainiddocumentidresponse.md
-  - docs/models/operations/deletedocumentbrainiddocumentidrequest.md
-  - docs/models/operations/deletedocumentbrainiddocumentidresponse.md
+  - docs/models/operations/createnewbrainrequestbody.md
+  - docs/models/operations/createnewbrainresponse.md
+  - docs/models/operations/getallbrainsresponse.md
+  - docs/models/operations/updatebrainrequestbody.md
+  - docs/models/operations/updatebrainrequest.md
+  - docs/models/operations/updatebrainresponse.md
+  - docs/models/operations/getbrainbyidrequest.md
+  - docs/models/operations/getbrainbyidresponse.md
+  - docs/models/operations/deletebrainrequest.md
+  - docs/models/operations/deletebrainresponse.md
+  - docs/models/operations/createtextdocumentrequestbody.md
+  - docs/models/operations/createtextdocumentrequest.md
+  - docs/models/operations/createtextdocumentresponse.md
+  - docs/models/operations/createurldocumentrequestbody.md
+  - docs/models/operations/createurldocumentrequest.md
+  - docs/models/operations/createurldocumentresponse.md
+  - docs/models/operations/downloaddocumentrequest.md
+  - docs/models/operations/downloaddocumentresponsebody.md
+  - docs/models/operations/downloaddocumentresponse.md
+  - docs/models/operations/getalldocumentsrequest.md
+  - docs/models/operations/getalldocumentsresponse.md
+  - docs/models/operations/getdocumentbyidrequest.md
+  - docs/models/operations/getdocumentbyidresponse.md
+  - docs/models/operations/deletedocumentrequest.md
+  - docs/models/operations/deletedocumentresponse.md
   - docs/models/operations/file.md
-  - docs/models/operations/postdocumentbrainidfilerequestbody.md
-  - docs/models/operations/postdocumentbrainidfilerequest.md
-  - docs/models/operations/postdocumentbrainidfileresponse.md
+  - docs/models/operations/uploaddocumentrequestbody.md
+  - docs/models/operations/uploaddocumentrequest.md
+  - docs/models/operations/uploaddocumentresponse.md
   - docs/models/operations/integration.md
-  - docs/models/operations/postchatrequestbody.md
-  - docs/models/operations/postchatresponse.md
-  - docs/models/operations/getchatresponse.md
-  - docs/models/operations/getchatchatidrequest.md
-  - docs/models/operations/getchatchatidresponse.md
-  - docs/models/operations/putchatchatidrequestbody.md
-  - docs/models/operations/putchatchatidrequest.md
-  - docs/models/operations/putchatchatidresponse.md
-  - docs/models/operations/deletechatchatidrequest.md
-  - docs/models/operations/deletechatchatidresponse.md
-  - docs/models/operations/postchatgetresponserequestbody.md
-  - docs/models/operations/postchatgetresponseresponse.md
-  - docs/models/operations/postchatlistinteractionsrequestbody.md
-  - docs/models/operations/postchatlistinteractionsresponse.md
+  - docs/models/operations/createnewchatrequestbody.md
+  - docs/models/operations/createnewchatresponse.md
+  - docs/models/operations/listchatsresponse.md
+  - docs/models/operations/getchatbyidrequest.md
+  - docs/models/operations/getchatbyidresponse.md
+  - docs/models/operations/updatechatrequestbody.md
+  - docs/models/operations/updatechatrequest.md
+  - docs/models/operations/updatechatresponse.md
+  - docs/models/operations/deletechatrequest.md
+  - docs/models/operations/deletechatresponse.md
+  - docs/models/operations/createnewchatwithmsgrequestbody.md
+  - docs/models/operations/createnewchatwithmsgresponse.md
+  - docs/models/operations/getresponserequestbody.md
+  - docs/models/operations/getresponseresponse.md
+  - docs/models/operations/listinteractionsrequestbody.md
+  - docs/models/operations/listinteractionsresponse.md
   - docs/models/operations/postchatbotcreaterequestbody.md
   - docs/models/operations/postchatbotcreateresponse.md
   - docs/models/operations/getchatbotlistrequest.md
@@ -186,11 +191,13 @@ generatedFiles:
   - docs/models/components/chatmessages.md
   - docs/models/components/chatbotmessages.md
   - docs/models/components/security.md
-  - docs/models/errors/postbrainbrainresponsebody.md
-  - docs/models/errors/postbrainresponsebody.md
-  - docs/models/errors/putbrainbrainidresponsebody.md
-  - docs/models/errors/getbrainbrainidresponsebody.md
-  - docs/models/errors/postdocumentbrainidurlresponsebody.md
+  - docs/models/errors/createnewbrainbrainresponsebody.md
+  - docs/models/errors/createnewbrainresponsebody.md
+  - docs/models/errors/updatebrainresponsebody.md
+  - docs/models/errors/getbrainbyidresponsebody.md
+  - docs/models/errors/createurldocumentresponsebody.md
+  - docs/models/errors/uploaddocumentdocumentresponsebody.md
+  - docs/models/errors/uploaddocumentresponsebody.md
   - docs/sdks/athenacopilotsdk/README.md
   - docs/sdks/brain/README.md
   - docs/sdks/document/README.md

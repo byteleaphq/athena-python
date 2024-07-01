@@ -12,8 +12,6 @@ from typing import List, Optional, Union
 class Reference2:
     pass
 
-ChatbotMessagesReference = Union[Document, 'Reference2']
-
 
 @dataclass_json(undefined=Undefined.EXCLUDE)
 @dataclasses.dataclass
@@ -43,3 +41,5 @@ class ChatbotMessages:
     chat_messages: Optional[List[ChatMessages]] = dataclasses.field(default=None, metadata={'dataclasses_json': { 'letter_case': utils.get_field_name('chat_messages'), 'exclude': lambda f: f is None }})
     
 
+
+ChatbotMessagesReference = Union[Document, Reference2]

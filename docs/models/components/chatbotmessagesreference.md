@@ -3,15 +3,15 @@
 
 ## Supported Types
 
-### Document
+### `components.Document`
 
 ```python
-chatbotMessagesReference: components.Document = /* values here */
+value: components.Document = /* values here */
 ```
 
-### Reference2
+### `components.Reference2`
 
 ```python
-chatbotMessagesReference: components.Reference2 = /* values here */
+value: components.Reference2 = /* values here */
 ```
 

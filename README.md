@@ -1,27 +1,7 @@
-# athena-copilot-sdk
-
-<div align="left">
-    <a href="https://speakeasyapi.dev/"><img src="https://custom-icon-badges.demolab.com/badge/-Built%20By%20Speakeasy-212015?style=for-the-badge&logoColor=FBE331&logo=speakeasy&labelColor=545454" /></a>
-    <a href="https://opensource.org/licenses/MIT">
-        <img src="https://img.shields.io/badge/License-MIT-blue.svg" style="width: 100px; height: 28px;" />
-    </a>
-</div>
-
-## 🏗 **Welcome to your new SDK!** 🏗
-
-It has been generated successfully based on your OpenAPI spec. However, it is not yet ready for production use. Here are some next steps:
-
-- [ ] 🛠 Make your SDK feel handcrafted by [customizing it](https://www.speakeasyapi.dev/docs/customize-sdks)
-- [ ] ♻️ Refine your SDK quickly by iterating locally with the [Speakeasy CLI](https://github.com/speakeasy-api/speakeasy)
-- [ ] 🎁 Publish your SDK to package managers by [configuring automatic publishing](https://www.speakeasyapi.dev/docs/advanced-setup/publish-sdks)
-- [ ] ✨ When ready to productionize, delete this section from the README
-
-<!-- Start SDK Installation [installation] -->
-
 ## SDK Installation
 
 ```bash
-pip install git+<UNSET>.git
+pip install git+https://github.com/byteleaphq/athena-python.git
 ```
 
 <!-- End SDK Installation [installation] -->
@@ -44,7 +24,7 @@ s = athenacopilotsdk.AthenaCopilotSDK(
 )
 
 
-res = s.brain.post_brain_(request=operations.PostBrainRequestBody(
+res = s.brain.create_new_brain(request=operations.CreateNewBrainRequestBody(
     name='Test - brain',
 ))
 
@@ -62,31 +42,32 @@ if res.brain is not None:
 
 ### [brain](https://github.com/byteleaphq/athena-python/blob/main/docs/sdks/brain/README.md)
 
-- [post*brain*](https://github.com/byteleaphq/athena-python/blob/main/docs/sdks/brain/README.md#post_brain_) - Create Brain
-- [get*brain*](https://github.com/byteleaphq/athena-python/blob/main/docs/sdks/brain/README.md#get_brain_) - Get All Brains
-- [put*brain_brain_id*](https://github.com/byteleaphq/athena-python/blob/main/docs/sdks/brain/README.md#put_brain_brain_id_) - Update Brain
-- [get*brain_brain_id*](https://github.com/byteleaphq/athena-python/blob/main/docs/sdks/brain/README.md#get_brain_brain_id_) - Get Brain by ID
-- [delete*brain_brain_id*](https://github.com/byteleaphq/athena-python/blob/main/docs/sdks/brain/README.md#delete_brain_brain_id_) - Delete Brain
+- [create_new_brain](https://github.com/byteleaphq/athena-python/blob/main/docs/sdks/brain/README.md#create_new_brain) - Create Brain
+- [get_all_brains](https://github.com/byteleaphq/athena-python/blob/main/docs/sdks/brain/README.md#get_all_brains) - Get All Brains
+- [update_brain](https://github.com/byteleaphq/athena-python/blob/main/docs/sdks/brain/README.md#update_brain) - Update Brain
+- [get_brain_by_id](https://github.com/byteleaphq/athena-python/blob/main/docs/sdks/brain/README.md#get_brain_by_id) - Get Brain by ID
+- [delete_brain](https://github.com/byteleaphq/athena-python/blob/main/docs/sdks/brain/README.md#delete_brain) - Delete Brain
 
 ### [document](https://github.com/byteleaphq/athena-python/blob/main/docs/sdks/document/README.md)
 
-- [post_document_brain_id_text](https://github.com/byteleaphq/athena-python/blob/main/docs/sdks/document/README.md#post_document_brain_id_text) - Create Text Document
-- [post_document_brain_id_url](https://github.com/byteleaphq/athena-python/blob/main/docs/sdks/document/README.md#post_document_brain_id_url) - Create Document by URL
-- [get_document_brain_id_document_id_download](https://github.com/byteleaphq/athena-python/blob/main/docs/sdks/document/README.md#get_document_brain_id_document_id_download) - Download
-- [get*document_brain_id*](https://github.com/byteleaphq/athena-python/blob/main/docs/sdks/document/README.md#get_document_brain_id_) - List Documents
-- [get*document_brain_id_document_id*](https://github.com/byteleaphq/athena-python/blob/main/docs/sdks/document/README.md#get_document_brain_id_document_id_) - Get Document
-- [delete*document_brain_id_document_id*](https://github.com/byteleaphq/athena-python/blob/main/docs/sdks/document/README.md#delete_document_brain_id_document_id_) - Delete Document
-- [post_document_brain_id_file](https://github.com/byteleaphq/athena-python/blob/main/docs/sdks/document/README.md#post_document_brain_id_file) - Upload Document
+- [create_text_document](https://github.com/byteleaphq/athena-python/blob/main/docs/sdks/document/README.md#create_text_document) - Create Text Document
+- [create_url_document](https://github.com/byteleaphq/athena-python/blob/main/docs/sdks/document/README.md#create_url_document) - Create Document by URL
+- [download_document](https://github.com/byteleaphq/athena-python/blob/main/docs/sdks/document/README.md#download_document) - Download
+- [get_all_documents](https://github.com/byteleaphq/athena-python/blob/main/docs/sdks/document/README.md#get_all_documents) - List Documents
+- [get_document_by_id](https://github.com/byteleaphq/athena-python/blob/main/docs/sdks/document/README.md#get_document_by_id) - Get Document
+- [delete_document](https://github.com/byteleaphq/athena-python/blob/main/docs/sdks/document/README.md#delete_document) - Delete Document
+- [upload_document](https://github.com/byteleaphq/athena-python/blob/main/docs/sdks/document/README.md#upload_document) - Upload Document
 
 ### [chat](https://github.com/byteleaphq/athena-python/blob/main/docs/sdks/chat/README.md)
 
-- [post*chat*](https://github.com/byteleaphq/athena-python/blob/main/docs/sdks/chat/README.md#post_chat_) - Create New Chat
-- [get*chat*](https://github.com/byteleaphq/athena-python/blob/main/docs/sdks/chat/README.md#get_chat_) - List Chats
-- [get*chat_chat_id*](https://github.com/byteleaphq/athena-python/blob/main/docs/sdks/chat/README.md#get_chat_chat_id_) - Get Chat
-- [put*chat_chat_id*](https://github.com/byteleaphq/athena-python/blob/main/docs/sdks/chat/README.md#put_chat_chat_id_) - Update Chat
-- [delete*chat_chat_id*](https://github.com/byteleaphq/athena-python/blob/main/docs/sdks/chat/README.md#delete_chat_chat_id_) - Delete Chat
-- [post_chat_get_response](https://github.com/byteleaphq/athena-python/blob/main/docs/sdks/chat/README.md#post_chat_get_response) - Get Response
-- [post_chat_list_interactions](https://github.com/byteleaphq/athena-python/blob/main/docs/sdks/chat/README.md#post_chat_list_interactions) - List Interactions
+- [create_new_chat](https://github.com/byteleaphq/athena-python/blob/main/docs/sdks/chat/README.md#create_new_chat) - Create New Chat
+- [list_chats](https://github.com/byteleaphq/athena-python/blob/main/docs/sdks/chat/README.md#list_chats) - List Chats
+- [get_chat_by_id](https://github.com/byteleaphq/athena-python/blob/main/docs/sdks/chat/README.md#get_chat_by_id) - Get Chat
+- [update_chat](https://github.com/byteleaphq/athena-python/blob/main/docs/sdks/chat/README.md#update_chat) - Update Chat
+- [delete_chat](https://github.com/byteleaphq/athena-python/blob/main/docs/sdks/chat/README.md#delete_chat) - Delete Chat
+- [create_new_chat_with_msg](https://github.com/byteleaphq/athena-python/blob/main/docs/sdks/chat/README.md#create_new_chat_with_msg) - Create New Chat With Message
+- [get_response](https://github.com/byteleaphq/athena-python/blob/main/docs/sdks/chat/README.md#get_response) - Get Response
+- [list_interactions](https://github.com/byteleaphq/athena-python/blob/main/docs/sdks/chat/README.md#list_interactions) - List Interactions
 
 ### [chatbot](https://github.com/byteleaphq/athena-python/blob/main/docs/sdks/chatbot/README.md)
 
@@ -117,11 +98,11 @@ if res.brain is not None:
 
 Handling errors in this SDK should largely match your expectations. All operations return a response object or raise an error. If Error objects are specified in your OpenAPI Spec, the SDK will raise the appropriate Error type.
 
-| Error Object                      | Status Code | Content Type     |
-| --------------------------------- | ----------- | ---------------- |
-| errors.PostBrainResponseBody      | 401         | application/json |
-| errors.PostBrainBrainResponseBody | 500         | application/json |
-| errors.SDKError                   | 4xx-5xx     | _/_              |
+| Error Object                           | Status Code | Content Type     |
+| -------------------------------------- | ----------- | ---------------- |
+| errors.CreateNewBrainResponseBody      | 401         | application/json |
+| errors.CreateNewBrainBrainResponseBody | 500         | application/json |
+| errors.SDKError                        | 4xx-5xx     | _/_              |
 
 ### Example
 
@@ -138,14 +119,14 @@ s = athenacopilotsdk.AthenaCopilotSDK(
 
 res = None
 try:
-    res = s.brain.post_brain_(request=operations.PostBrainRequestBody(
+    res = s.brain.create_new_brain(request=operations.CreateNewBrainRequestBody(
     name='Test - brain',
 ))
 
-except errors.PostBrainResponseBody as e:
+except errors.CreateNewBrainResponseBody as e:
     # handle exception
     raise(e)
-except errors.PostBrainBrainResponseBody as e:
+except errors.CreateNewBrainBrainResponseBody as e:
     # handle exception
     raise(e)
 except errors.SDKError as e:
@@ -187,7 +168,7 @@ s = athenacopilotsdk.AthenaCopilotSDK(
 )
 
 
-res = s.brain.post_brain_(request=operations.PostBrainRequestBody(
+res = s.brain.create_new_brain(request=operations.CreateNewBrainRequestBody(
     name='Test - brain',
 ))
 
@@ -214,7 +195,7 @@ s = athenacopilotsdk.AthenaCopilotSDK(
 )
 
 
-res = s.brain.post_brain_(request=operations.PostBrainRequestBody(
+res = s.brain.create_new_brain(request=operations.CreateNewBrainRequestBody(
     name='Test - brain',
 ))
 
@@ -271,7 +252,7 @@ s = athenacopilotsdk.AthenaCopilotSDK(
 )
 
 
-res = s.brain.post_brain_(request=operations.PostBrainRequestBody(
+res = s.brain.create_new_brain(request=operations.CreateNewBrainRequestBody(
     name='Test - brain',
 ))
 

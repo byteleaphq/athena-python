@@ -11,7 +11,7 @@ s = athenacopilotsdk.AthenaCopilotSDK(
 )
 
 
-res = s.brain.post_brain_(request=operations.PostBrainRequestBody(
+res = s.brain.create_new_brain(request=operations.CreateNewBrainRequestBody(
     name='Test - brain',
 ))
 
