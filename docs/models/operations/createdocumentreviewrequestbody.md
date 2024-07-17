@@ -1,0 +1,13 @@
+# CreateDocumentReviewRequestBody
+
+
+## Fields
+
+| Field                                                                      | Type                                                                       | Required                                                                   | Description                                                                |
+| -------------------------------------------------------------------------- | -------------------------------------------------------------------------- | -------------------------------------------------------------------------- | -------------------------------------------------------------------------- |
+| `message`                                                                  | *Optional[str]*                                                            | :heavy_minus_sign:                                                         | N/A                                                                        |
+| `brain_id`                                                                 | *Optional[str]*                                                            | :heavy_minus_sign:                                                         | N/A                                                                        |
+| `document_id`                                                              | *Optional[str]*                                                            | :heavy_minus_sign:                                                         | N/A                                                                        |
+| `review_model`                                                             | [Optional[operations.ReviewModel]](../../models/operations/reviewmodel.md) | :heavy_minus_sign:                                                         | N/A                                                                        |
+| `final_model`                                                              | [Optional[operations.FinalModel]](../../models/operations/finalmodel.md)   | :heavy_minus_sign:                                                         | N/A                                                                        |
+| `active_reading_instructions`                                              | *Optional[str]*                                                            | :heavy_minus_sign:                                                         | N/A                                                                        |

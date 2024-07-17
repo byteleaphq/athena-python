@@ -1,17 +1,17 @@
 lockVersion: 2.0.0
 id: 88029c87-fb19-4748-a926-76e977e7e0ac
 management:
-  docChecksum: 33e958d74219409c3b0222c02d5f3220
+  docChecksum: 41df7dd86f72a1f58cc28e026ed68620
   docVersion: 1.0.0
-  speakeasyVersion: 1.324.0
-  generationVersion: 2.356.0
-  releaseVersion: 0.2.2
-  configChecksum: 912b9f0a0bf73855aa310ee57de54ce1
+  speakeasyVersion: 1.337.1
+  generationVersion: 2.373.2
+  releaseVersion: 0.3.1
+  configChecksum: 4ff7e16a86ca8bf918684aca3c4f9f1f
 features:
   python:
     additionalDependencies: 0.1.0
     additionalProperties: 0.1.0
-    core: 4.6.13
+    core: 4.8.2
     flattening: 2.81.1
     globalSecurity: 2.83.5
     globalSecurityCallbacks: 0.1.0
@@ -50,6 +50,9 @@ generatedFiles:
   - src/athenacopilotsdk/models/operations/get_document_by_id.py
   - src/athenacopilotsdk/models/operations/delete_document.py
   - src/athenacopilotsdk/models/operations/upload_document.py
+  - src/athenacopilotsdk/models/operations/searchdocuments.py
+  - src/athenacopilotsdk/models/operations/createdocumentreview.py
+  - src/athenacopilotsdk/models/operations/listdocumentreviews.py
   - src/athenacopilotsdk/models/operations/create_new_chat.py
   - src/athenacopilotsdk/models/operations/list_chats.py
   - src/athenacopilotsdk/models/operations/get_chat_by_id.py
@@ -75,6 +78,8 @@ generatedFiles:
   - src/athenacopilotsdk/models/components/httpmetadata.py
   - src/athenacopilotsdk/models/components/deleteresponse.py
   - src/athenacopilotsdk/models/components/document.py
+  - src/athenacopilotsdk/models/components/documentreview.py
+  - src/athenacopilotsdk/models/components/documentreviewdetail.py
   - src/athenacopilotsdk/models/components/chat.py
   - src/athenacopilotsdk/models/components/chatinteraction.py
   - src/athenacopilotsdk/models/components/chatbotresponse.py
@@ -119,6 +124,14 @@ generatedFiles:
   - docs/models/operations/uploaddocumentrequestbody.md
   - docs/models/operations/uploaddocumentrequest.md
   - docs/models/operations/uploaddocumentresponse.md
+  - docs/models/operations/searchdocumentsrequest.md
+  - docs/models/operations/searchdocumentsresponse.md
+  - docs/models/operations/reviewmodel.md
+  - docs/models/operations/finalmodel.md
+  - docs/models/operations/createdocumentreviewrequestbody.md
+  - docs/models/operations/createdocumentreviewresponse.md
+  - docs/models/operations/listdocumentreviewsrequest.md
+  - docs/models/operations/listdocumentreviewsresponse.md
   - docs/models/operations/integration.md
   - docs/models/operations/createnewchatrequestbody.md
   - docs/models/operations/createnewchatresponse.md
@@ -174,6 +187,10 @@ generatedFiles:
   - docs/models/components/httpmetadata.md
   - docs/models/components/deleteresponse.md
   - docs/models/components/document.md
+  - docs/models/components/documentreview.md
+  - docs/models/components/activereadingmodel.md
+  - docs/models/components/finalreviewmodel.md
+  - docs/models/components/documentreviewdetail.md
   - docs/models/components/modelresponse.md
   - docs/models/components/userinput.md
   - docs/models/components/recentchathistory.md
@@ -210,3 +227,4 @@ generatedFiles:
   - src/athenacopilotsdk/_hooks/sdkhooks.py
   - src/athenacopilotsdk/_hooks/types.py
   - src/athenacopilotsdk/_hooks/__init__.py
+  - CONTRIBUTING.md

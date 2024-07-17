@@ -57,6 +57,9 @@ if res.brain is not None:
 - [get_document_by_id](https://github.com/byteleaphq/athena-python/blob/main/docs/sdks/document/README.md#get_document_by_id) - Get Document
 - [delete_document](https://github.com/byteleaphq/athena-python/blob/main/docs/sdks/document/README.md#delete_document) - Delete Document
 - [upload_document](https://github.com/byteleaphq/athena-python/blob/main/docs/sdks/document/README.md#upload_document) - Upload Document
+- [search_documents](https://github.com/byteleaphq/athena-python/blob/main/docs/sdks/document/README.md#search_documents) - Search documents
+- [create_document_review](https://github.com/byteleaphq/athena-python/blob/main/docs/sdks/document/README.md#create_document_review) - Create document review
+- [list_document_reviews](https://github.com/byteleaphq/athena-python/blob/main/docs/sdks/document/README.md#list_document_reviews) - List document reviews
 
 ### [chat](https://github.com/byteleaphq/athena-python/blob/main/docs/sdks/chat/README.md)
 
@@ -263,6 +266,16 @@ if res.brain is not None:
 ```
 
 <!-- End Authentication [security] -->
+
+<!-- Start SDK Installation [installation] -->
+
+## SDK Installation
+
+```bash
+pip install git+<UNSET>.git
+```
+
+<!-- End SDK Installation [installation] -->
 
 <!-- Placeholder for Future Speakeasy SDK Sections -->
 

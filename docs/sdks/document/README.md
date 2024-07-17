@@ -10,6 +10,9 @@
 * [get_document_by_id](#get_document_by_id) - Get Document
 * [delete_document](#delete_document) - Delete Document
 * [upload_document](#upload_document) - Upload Document
+* [search_documents](#search_documents) - Search documents
+* [create_document_review](#create_document_review) - Create document review
+* [list_document_reviews](#list_document_reviews) - List document reviews
 
 ## create_text_document
 
@@ -317,3 +320,130 @@ if res.document is not None:
 | errors.UploadDocumentResponseBody         | 400                                       | application/json                          |
 | errors.UploadDocumentDocumentResponseBody | 500                                       | application/json                          |
 | errors.SDKError                           | 4xx-5xx                                   | */*                                       |
+
+## search_documents
+
+Search for documents within a specific brain
+
+### Example Usage
+
+```python
+import athenacopilotsdk
+from athenacopilotsdk.models import components
+
+s = athenacopilotsdk.AthenaCopilotSDK(
+    security=components.Security(
+        username="<YOUR_USERNAME_HERE>",
+        password="<YOUR_PASSWORD_HERE>",
+    ),
+)
+
+
+res = s.document.search_documents(brain_id='7d191da4-7384-4513-b3f8-8492d6cab740', search_query='<value>')
+
+if res.documents is not None:
+    # handle response
+    pass
+
+```
+
+### Parameters
+
+| Parameter                                 | Type                                      | Required                                  | Description                               |
+| ----------------------------------------- | ----------------------------------------- | ----------------------------------------- | ----------------------------------------- |
+| `brain_id`                                | *str*                                     | :heavy_check_mark:                        | ID of the brain to search in              |
+| `search_query`                            | *Optional[str]*                           | :heavy_minus_sign:                        | Optional search query to filter documents |
+
+
+### Response
+
+**[operations.SearchDocumentsResponse](../../models/operations/searchdocumentsresponse.md)**
+### Errors
+
+| Error Object    | Status Code     | Content Type    |
+| --------------- | --------------- | --------------- |
+| errors.SDKError | 4xx-5xx         | */*             |
+
+## create_document_review
+
+Create a new document review
+
+### Example Usage
+
+```python
+import athenacopilotsdk
+from athenacopilotsdk.models import components, operations
+
+s = athenacopilotsdk.AthenaCopilotSDK(
+    security=components.Security(
+        username="<YOUR_USERNAME_HERE>",
+        password="<YOUR_PASSWORD_HERE>",
+    ),
+)
+
+
+res = s.document.create_document_review(request=operations.CreateDocumentReviewRequestBody())
+
+if res.document_review is not None:
+    # handle response
+    pass
+
+```
+
+### Parameters
+
+| Parameter                                                                                                | Type                                                                                                     | Required                                                                                                 | Description                                                                                              |
+| -------------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------------- |
+| `request`                                                                                                | [operations.CreateDocumentReviewRequestBody](../../models/operations/createdocumentreviewrequestbody.md) | :heavy_check_mark:                                                                                       | The request object to use for the request.                                                               |
+
+
+### Response
+
+**[operations.CreateDocumentReviewResponse](../../models/operations/createdocumentreviewresponse.md)**
+### Errors
+
+| Error Object    | Status Code     | Content Type    |
+| --------------- | --------------- | --------------- |
+| errors.SDKError | 4xx-5xx         | */*             |
+
+## list_document_reviews
+
+Retrieve a list of document reviews
+
+### Example Usage
+
+```python
+import athenacopilotsdk
+from athenacopilotsdk.models import components
+
+s = athenacopilotsdk.AthenaCopilotSDK(
+    security=components.Security(
+        username="<YOUR_USERNAME_HERE>",
+        password="<YOUR_PASSWORD_HERE>",
+    ),
+)
+
+
+res = s.document.list_document_reviews(brain_id='bcea6473-757a-4b6a-9ffa-eb6a88700e59')
+
+if res.document_review_details is not None:
+    # handle response
+    pass
+
+```
+
+### Parameters
+
+| Parameter                                    | Type                                         | Required                                     | Description                                  |
+| -------------------------------------------- | -------------------------------------------- | -------------------------------------------- | -------------------------------------------- |
+| `brain_id`                                   | *Optional[str]*                              | :heavy_minus_sign:                           | Optional brain ID to filter document reviews |
+
+
+### Response
+
+**[operations.ListDocumentReviewsResponse](../../models/operations/listdocumentreviewsresponse.md)**
+### Errors
+
+| Error Object    | Status Code     | Content Type    |
+| --------------- | --------------- | --------------- |
+| errors.SDKError | 4xx-5xx         | */*             |
